@@ -87,7 +87,7 @@ const fetchCounts = async () => {
 
       // ✅ Fetch comment count
       const { count: commentCount } = await supabase
-        .from("post_comments")
+        .from("suggestions")
         .select("*", { count: "exact", head: true })
         .eq("postid", post.postid);
       commentMap[post.postid] = commentCount || 0;

@@ -9,6 +9,12 @@ export default function PostDetail() {
   const [post, setPost] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
   const [newSuggestion, setNewSuggestion] = useState("");
+  const [replyBoxes, setReplyBoxes] = useState({}); 
+  const [replyText, setReplyText] = useState({});
+  const [replies, setReplies] = useState({});
+  const [likeCounts, setLikeCounts] = useState({});
+  const [commentCounts, setCommentCounts] = useState({});
+  const [userLikes, setUserLikes] = useState({});
 
   // ✅ Fetch post + user info + profile
   const fetchPostDetail = async () => {
@@ -100,6 +106,106 @@ const fetchSuggestions = async () => {
 
   console.log("✅ Combined suggestions (final):", combined);
   setSuggestions(combined);
+
+  // --- Comment counts from suggestion_replies ---
+const { data: repliesData } = await supabase
+  .from("suggestion_replies")
+  .select("suggestionid");
+
+const groupedComments = {};
+repliesData?.forEach((r) => {
+  if (!groupedComments[r.suggestionid]) groupedComments[r.suggestionid] = 0;
+  groupedComments[r.suggestionid]++;
+});
+setCommentCounts(groupedComments);
+
+// --- Like counts from suggestion_likes table ---
+const { data: likesData } = await supabase
+  .from("suggestion_likes")
+  .select("suggestionid, userid"); // ✅ add userid
+
+const groupedLikes = {};
+likesData?.forEach((l) => {
+  if (!groupedLikes[l.suggestionid]) groupedLikes[l.suggestionid] = 0;
+  groupedLikes[l.suggestionid]++;
+});
+setLikeCounts(groupedLikes);
+
+// Determine which suggestions the current user has liked
+const authUser = JSON.parse(localStorage.getItem("user"));
+let currentUserId = null;
+if (authUser?.email) {
+  const { data: userRow } = await supabase
+    .from("users")
+    .select("userid")
+    .eq("email", authUser.email)
+    .single();
+  currentUserId = userRow?.userid;
+}
+
+const likesByUser = {};
+likesData?.forEach((l) => {
+  if (l.userid === currentUserId) likesByUser[l.suggestionid] = true;
+});
+setUserLikes(likesByUser);
+
+};
+
+const fetchReplies = async () => {
+  const { data, error } = await supabase
+    .from("suggestion_replies")
+    .select("replyid, suggestionid, userid, content, datereplied")
+    .in(
+      "suggestionid",
+      suggestions.map((s) => s.suggestionid)
+    )
+    .order("datereplied", { ascending: true });
+
+  if (error) {
+    console.error("❌ Error fetching replies:", error);
+    return;
+  }
+
+  if (!data || data.length === 0) {
+    setReplies({});
+    return;
+  }
+
+  // extract unique userids
+  const replyUserIds = [...new Set(data.map((r) => r.userid))];
+
+  // fetch usernames
+  const { data: usersData } = await supabase
+    .from("users")
+    .select("userid, username")
+    .in("userid", replyUserIds);
+
+  // fetch profile pics
+  const { data: profilesData } = await supabase
+    .from("profile")
+    .select("userid, profilepicture")
+    .in("userid", replyUserIds);
+
+  const merged = data.map((r) => {
+    const user = usersData?.find((u) => u.userid === r.userid);
+    const profile = profilesData?.find((p) => p.userid === r.userid);
+    return {
+      ...r,
+      username: user?.username || "Anonymous",
+      profilepicture:
+        profile?.profilepicture ||
+        "https://cdn-icons-png.flaticon.com/512/847/847969.png",
+    };
+  });
+
+  // group replies by suggestionid
+  const grouped = {};
+  merged.forEach((r) => {
+    if (!grouped[r.suggestionid]) grouped[r.suggestionid] = [];
+    grouped[r.suggestionid].push(r);
+  });
+
+  setReplies(grouped);
 };
 
 
@@ -152,10 +258,126 @@ const fetchSuggestions = async () => {
     fetchSuggestions();
   };
 
-  useEffect(() => {
-    fetchPostDetail();
-    fetchSuggestions();
-  }, [id]);
+  const handleAddReply = async (suggestionid) => {
+  const text = replyText[suggestionid];
+  if (!text || !text.trim()) return;
+
+  const authUser = JSON.parse(localStorage.getItem("user"));
+  if (!authUser?.email) {
+    alert("Please log in first");
+    return;
+  }
+
+  const { data: userRow } = await supabase
+    .from("users")
+    .select("userid")
+    .eq("email", authUser.email)
+    .single();
+
+  if (!userRow) {
+    alert("User not found");
+    return;
+  }
+
+  await supabase.from("suggestion_replies").insert([
+    {
+      suggestionid,
+      userid: Number(userRow.userid),
+      content: text.trim(),
+    },
+  ]);
+
+  // refresh replies
+  setReplyText({ ...replyText, [suggestionid]: "" });
+  setReplyBoxes({ ...replyBoxes, [suggestionid]: false });
+  fetchReplies();
+};
+
+const handleToggleLike = async (suggestionid) => {
+  const authUser = JSON.parse(localStorage.getItem("user"));
+  if (!authUser?.email) {
+    alert("Please log in first");
+    return;
+  }
+
+  // Get the current user's userid
+  const { data: userRow, error: userError } = await supabase
+    .from("users")
+    .select("userid")
+    .eq("email", authUser.email)
+    .single();
+
+  if (userError || !userRow) {
+    alert("User not found");
+    return;
+  }
+
+  const userid = userRow.userid;
+
+  // Check if the user already liked this suggestion
+  const { data: existingLike } = await supabase
+    .from("suggestion_likes")
+    .select("likeid")
+    .eq("suggestionid", suggestionid)
+    .eq("userid", userid)
+    .single();
+
+  if (existingLike) {
+    // User already liked → remove like
+    const { error } = await supabase
+      .from("suggestion_likes")
+      .delete()
+      .eq("likeid", existingLike.likeid);
+
+    if (error) {
+      console.error("❌ Error removing like:", error);
+      return;
+    }
+  } else {
+    // User hasn't liked → add like
+    const { error } = await supabase.from("suggestion_likes").insert([
+      {
+        suggestionid,
+        userid,
+        dateliked: new Date(),
+      },
+    ]);
+
+    if (error) {
+      console.error("❌ Error adding like:", error);
+      return;
+    }
+  }
+
+  // Refresh like counts
+  const { data: likesData } = await supabase.from("suggestion_likes").select("suggestionid");
+  const groupedLikes = {};
+  likesData?.forEach((l) => {
+    if (!groupedLikes[l.suggestionid]) groupedLikes[l.suggestionid] = 0;
+    groupedLikes[l.suggestionid]++;
+  });
+  setLikeCounts(groupedLikes);
+
+  setUserLikes({
+  ...userLikes,
+  [suggestionid]: !userLikes[suggestionid],
+});
+
+};
+
+
+ useEffect(() => {
+  fetchPostDetail();
+  const load = async () => {
+    await fetchSuggestions();
+    if (suggestions.length > 0) {
+      await fetchReplies();
+    }
+  };
+  load();
+}, [id, suggestions.length]);
+
+
 
   if (!post)
     return (
@@ -292,18 +514,92 @@ const fetchSuggestions = async () => {
 
             {/* Icons Row */}
             <div className="flex items-center gap-6 mt-2 text-gray-500 text-sm">
+             <span
+  onClick={() => handleToggleLike(s.suggestionid)}
+  className="flex items-center gap-1 cursor-pointer hover:text-orange-600"
+>
+  {userLikes[s.suggestionid] ? "❤️" : "🤍"} <span>{likeCounts[s.suggestionid] || 0}</span>
+</span>
+
               <span className="flex items-center gap-1 cursor-pointer hover:text-orange-600">
-                👍 <span>12</span>
+                💬 <span>{commentCounts[s.suggestionid] || 0}</span>
               </span>
-              <span className="flex items-center gap-1 cursor-pointer hover:text-orange-600">
-                💬 <span>3</span>
-              </span>
-              <span className="text-xs text-orange-500 cursor-pointer hover:underline ml-auto">
-                Reply
-              </span>
+             <span
+                  onClick={() =>
+                    setReplyBoxes({
+                      ...replyBoxes,
+                      [s.suggestionid]: !replyBoxes[s.suggestionid],
+                    })
+                  }
+                  className="text-xs text-orange-500 cursor-pointer hover:underline ml-auto"
+                >
+                  Reply
+                </span>
+
             </div>
+
+             {/* ====== Reply Input Box (toggle) ====== */}
+{replyBoxes[s.suggestionid] && (
+  <div className="mt-3 ml-12">
+    <textarea
+      value={replyText[s.suggestionid] || ""}
+      onChange={(e) =>
+        setReplyText({
+          ...replyText,
+          [s.suggestionid]: e.target.value,
+        })
+      }
+      placeholder="Write a reply..."
+      className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+    />
+
+    <div className="flex justify-end gap-2 mt-2">
+      <button
+        onClick={() => {
+          setReplyBoxes({ ...replyBoxes, [s.suggestionid]: false });
+          setReplyText({ ...replyText, [s.suggestionid]: "" });
+        }}
+        className="px-3 py-1 text-sm border rounded-md"
+      >
+        Cancel
+      </button>
+      <button
+        onClick={() => handleAddReply(s.suggestionid)}
+        className="px-3 py-1 text-sm bg-orange-600 text-white rounded-md"
+      >
+        Reply
+      </button>
+    </div>
+  </div>
+)}
+
+{/* ====== Replies List ====== */}
+{replies[s.suggestionid] &&
+  replies[s.suggestionid].map((r) => (
+    <div
+      key={r.replyid}
+      className="ml-12 mt-3 p-3 bg-white border border-gray-200 rounded-lg"
+    >
+      <div className="flex gap-3">
+        <img
+          src={r.profilepicture}
+          className="w-8 h-8 rounded-full border object-cover"
+        />
+        <div>
+          <h5 className="font-semibold text-sm">{r.username}</h5>
+          <p className="text-xs text-gray-400">
+            {new Date(r.datereplied).toLocaleString()}
+          </p>
+          <p className="text-gray-700 text-sm mt-1">{r.content}</p>
+        </div>
+      </div>
+    </div>
+  ))}
           </div>
+
         ))}
+       
+
       </div>
     </div>
   );
