@@ -235,64 +235,58 @@ const toggleFavorite = async (postid) => {
               </h3>
               <ul className="text-sm text-gray-700 space-y-3">
               <li
-  onClick={() => {
-    window.location.hash = "questions";   // keep your original behavior
-    setFilterTag("Question");             // new filter
-  }}
-  className="flex items-center gap-2 text-orange-600 font-semibold cursor-pointer"
->
-  <span className="text-lg">💬</span> Questions
-</li>
+                  onClick={() => {
+                    window.location.hash = "questions";   // keep your original behavior
+                    setFilterTag("Question");             // new filter
+                  }}
+                  className="flex items-center gap-2 text-orange-600 font-semibold cursor-pointer"
+                >
+                    <span className="text-lg">💬</span> Questions
+                  </li>
 
-<li
-  onClick={() => setShowAllTags(!showAllTags)}
-  className="hover:text-orange-600 cursor-pointer"
->
-  🏷 Tags
-</li>
-
-
-<li className="hover:text-orange-600 cursor-pointer">
-  ⭐ Ranking
-</li>
-
-<li
-  onClick={() => {
-    window.location.hash = "recipe";      // keep your original behavior
-    setFilterTag("Recipe");               // new filter
-  }}
-  className="hover:text-orange-600 cursor-pointer"
->
-  🍳 Recipe
-</li>
-
-<li
-  onClick={() => {
-    window.location.hash = "all";         // optional
-    setFilterTag(null);                   // reset filter
-  }}
-  className="hover:text-orange-600 cursor-pointer"
->
-  All Posts
-</li>
+                  <li
+                    onClick={() => setShowAllTags(!showAllTags)}
+                    className="hover:text-orange-600 cursor-pointer"
+                  >
+                    🏷 Tags
+                  </li>
 
 
+                  <li
+                    onClick={() => {
+                      window.location.hash = "recipe";      // keep your original behavior
+                      setFilterTag("Recipe");               // new filter
+                    }}
+                    className="hover:text-orange-600 cursor-pointer"
+                  >
+                    🍳 Recipe
+                  </li>
+
+                  <li
+                    onClick={() => {
+                      window.location.hash = "all";         // optional
+                      setFilterTag(null);                   // reset filter
+                    }}
+                    className="hover:text-orange-600 cursor-pointer"
+                  >
+                    ⭐ All Posts
+                  </li>
               </ul>
 
               <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-3 mt-7">
                 Personal Navigator
               </h3>
               <ul className="text-sm text-gray-700 space-y-3">
-                <li className="hover:text-orange-600 cursor-pointer">
+                <li onClick={() => navigate("/your-questions")} className="hover:text-orange-600 cursor-pointer">
                   📝 Your questions
                 </li>
-                <li className="hover:text-orange-600 cursor-pointer">
+                <li onClick={() => navigate("/your-answers")} className="hover:text-orange-600 cursor-pointer">
                   💬 Your answers
                 </li>
-                <li className="hover:text-orange-600 cursor-pointer">
-                  ❤️ Your likes & votes
+                <li onClick={() => navigate("/your-likes")} className="hover:text-orange-600 cursor-pointer">
+                  ❤️ Your likes
                 </li>
-                <li className="hover:text-orange-600 cursor-pointer">
+                <li onClick={() => navigate("/your-recipes")} className="hover:text-orange-600 cursor-pointer">
                   🍲 Your recipes
                 </li>
                 <li
@@ -337,37 +331,37 @@ const toggleFavorite = async (postid) => {
             </div>
           </div>
 
-{showAllTags && allTags.length > 0 && (
-  <div className="flex flex-wrap gap-2 mb-4">
-    {allTags.map((tag, index) => (
-      <span
-        key={index}
-        onClick={() => setFilterTag(tag)}
-        className="cursor-pointer px-3 py-1 text-sm font-medium bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition"
-      >
-        {tag}
-      </span>
-    ))}
-  </div>
-)}
+            {showAllTags && allTags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {allTags.map((tag, index) => (
+                  <span
+                    key={index}
+                    onClick={() => setFilterTag(tag)}
+                    className="cursor-pointer px-3 py-1 text-sm font-medium bg-orange-100 text-orange-700 rounded-full hover:bg-orange-200 transition"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
 
          {/* ✅ Dynamic Posts from Supabase */}
-{filteredPosts.length > 0 ? (
-  filteredPosts.map((post) => {
-    // ✅ Handle multiple images stored as JSON or single URL
-    let images = [];
-    try {
-      if (post.imageurl) {
-        if (typeof post.imageurl === "string") {
-          images = JSON.parse(post.imageurl);
-          if (!Array.isArray(images)) images = [post.imageurl];
-        } else if (Array.isArray(post.imageurl)) {
-          images = post.imageurl;
-        }
-      }
-    } catch {
-      images = [post.imageurl];
-    }
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post) => {
+              // ✅ Handle multiple images stored as JSON or single URL
+              let images = [];
+              try {
+                if (post.imageurl) {
+                  if (typeof post.imageurl === "string") {
+                    images = JSON.parse(post.imageurl);
+                    if (!Array.isArray(images)) images = [post.imageurl];
+                  } else if (Array.isArray(post.imageurl)) {
+                    images = post.imageurl;
+                  }
+                }
+              } catch {
+                images = [post.imageurl];
+              }
 
     return (
       <div
@@ -479,9 +473,6 @@ const toggleFavorite = async (postid) => {
     <span>{favoritesCount[post.postid] || 0}</span>
   </button>
 </div>
-
-
-
       </div>
     );
   })

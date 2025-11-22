@@ -11,6 +11,10 @@ import Profile from "./pages/ProfilePage";
 import CreateQuestion from "./pages/CreateQuestion";
 import PostDetail from "./pages/PostDetail";
 import Drafts from "./pages/Drafts";
+import YourQuestions from "./pages/YourQuestion";
+import YourAnswers from "./pages/YourAnswer";
+import YourLikes from "./pages/YourLikes";
+import YourRecipes from "./pages/YourRecipes";
 
 export default function App() {
   return (
@@ -27,6 +31,10 @@ export default function App() {
         <Route path="/create-question" element={<CreateQuestion />} />
         <Route path="/community/:id" element={<PostDetail />} />
         <Route path="/drafts" element={<Drafts />} />
+        <Route path="/your-questions" element={<YourQuestions />} />
+        <Route path="/your-answers" element={<YourAnswers />} />
+        <Route path="/your-likes" element={<YourLikes />} />
+        <Route path="/your-recipes" element={<YourRecipes />} />
       </Routes>
     </BrowserRouter>
   );

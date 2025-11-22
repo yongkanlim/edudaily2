@@ -53,14 +53,107 @@ export default function Drafts() {
   if (!user) return null;
 
   return (
-    <div className="bg-white min-h-screen">
-      <Navbar />
-      <div className="max-w-4xl mx-auto px-6 py-10 space-y-6">
+  <div className="bg-white min-h-screen">
+    <Navbar />
+
+    <div className="max-w-7xl mx-auto px-6 py-10 grid lg:grid-cols-12 gap-8">
+
+      {/* ================= LEFT SIDEBAR ================= */}
+      <aside className="hidden lg:block lg:col-span-2">
+        <div className="sticky top-24 space-y-6">
+          <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-6">
+
+            <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-3">
+              Menu
+            </h3>
+           <ul className="text-sm text-gray-700 space-y-3">
+
+  {/* QUESTIONS */}
+  <li
+    onClick={() => {
+      navigate("/community");          // go back to community page
+      window.location.hash = "questions";
+      setFilterTag("Question");        // your existing filter behavior
+    }}
+    className="flex items-center gap-2 hover:text-orange-600 cursor-pointer"
+  >
+    <span className="text-lg">💬</span> Questions
+  </li>
+
+  {/* TAGS */}
+  <li
+    onClick={() => {
+      navigate("/community");
+      window.location.hash = "tags";
+      setShowAllTags(!showAllTags);
+    }}
+    className="hover:text-orange-600 cursor-pointer"
+  >
+    🏷 Tags
+  </li>
+
+  {/* RECIPE */}
+  <li
+    onClick={() => {
+      navigate("/community");
+      window.location.hash = "recipe";
+      setFilterTag("Recipe");
+    }}
+    className="hover:text-orange-600 cursor-pointer"
+  >
+    🍳 Recipe
+  </li>
+
+  {/* ALL POSTS */}
+  <li
+    onClick={() => {
+      navigate("/community");
+      window.location.hash = "all";
+      setFilterTag(null);
+    }}
+    className="hover:text-orange-600 cursor-pointer"
+  >
+    ⭐ All Posts
+  </li>
+
+</ul>
+
+
+            <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-3 mt-7">
+              Personal Navigator
+            </h3>
+            <ul className="text-sm text-gray-700 space-y-3">
+                <li onClick={() => navigate("/your-questions")} className="hover:text-orange-600 cursor-pointer">
+                  📝 Your questions
+                </li>
+                <li onClick={() => navigate("/your-answers")} className="hover:text-orange-600 cursor-pointer">
+                  💬 Your answers
+                </li>
+                <li onClick={() => navigate("/your-likes")} className="hover:text-orange-600 cursor-pointer">
+                  ❤️ Your likes
+                </li>
+                <li onClick={() => navigate("/your-recipes")} className="hover:text-orange-600 cursor-pointer">
+                  🍲 Your recipes
+                </li>
+                <li
+                    onClick={() => navigate("/drafts")}
+                    className="hover:text-orange-600 cursor-pointer font-semibold text-orange-600"
+                  >
+                    📝 My Drafts
+                  </li>
+
+              </ul>
+
+          </div>
+        </div>
+      </aside>
+
+      {/* ================= MIDDLE CONTENT (YOUR ORIGINAL CODE) ================= */}
+      <main className="lg:col-span-7 space-y-6">
         <h2 className="text-xl font-semibold text-gray-800">📝 Your Drafts</h2>
 
         {drafts.length > 0 ? (
           drafts.map((draft) => {
-            // ✅ Parse images from JSON or handle single URL
             let images = [];
             try {
               if (draft.imageurl) {
@@ -89,7 +182,6 @@ export default function Drafts() {
                   {new Date(draft.dateposted).toLocaleString()}
                 </p>
 
-                {/* ✅ Display draft images */}
                 {images.length > 0 && (
                   <div
                     className={`grid gap-3 mb-3 ${
@@ -120,7 +212,33 @@ export default function Drafts() {
         ) : (
           <p className="text-gray-500">You have no drafts.</p>
         )}
-      </div>
+      </main>
+
+      {/* ================= RIGHT SIDEBAR ================= */}
+      <aside className="hidden lg:block lg:col-span-3 space-y-6">
+        <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+          <h4 className="font-semibold text-gray-800 mb-3">📌 Must-read posts</h4>
+          <ul className="text-sm text-gray-600 space-y-2">
+            <li className="hover:text-orange-600 cursor-pointer">
+              ✅ Please read rules before you start
+            </li>
+            <li className="hover:text-orange-600 cursor-pointer">
+              🌍 Vision & Strategy of EduDaily
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+          <h4 className="font-semibold text-gray-800 mb-3">🔗 Featured Links</h4>
+          <ul className="text-sm text-orange-600 space-y-2">
+            <li className="hover:underline cursor-pointer">EduDaily Recipe</li>
+            <li className="hover:underline cursor-pointer">EduDaily Ingredient Info</li>
+            <li className="hover:underline cursor-pointer">EduDaily Homepage</li>
+          </ul>
+        </div>
+      </aside>
+
     </div>
-  );
+  </div>
+);
 }
