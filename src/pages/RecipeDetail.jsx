@@ -28,9 +28,9 @@ export default function RecipeDetail() {
       if (recipeError) throw recipeError;
       setRecipe({
   ...recipeData,
-  // ensure the instruction HTML renders safely later
-  instructions: recipeData.instructions,
+  instructions: recipeData.instructions?.replace(/\n/g, "<br>"),
 });
+
 
 
       // Fetch recipe ingredients joined with ingredient details

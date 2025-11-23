@@ -42,6 +42,7 @@ export default function YourQuestions() {
         .select("*")
         .eq("userid", userRow.userid)
         .eq("status", "Published")
+        .ilike("tag", "%Question%")    // ✅ filter posts that contain “Question”
         .order("dateposted", { ascending: false });
 
       if (postsError) console.error(postsError);

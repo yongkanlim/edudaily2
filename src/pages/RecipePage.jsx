@@ -36,7 +36,7 @@ export default function RecipePage() {
         {/* Top Controls Row */}
         <div className="flex flex-wrap items-center justify-between px-6 lg:px-16 py-4 gap-4">
           {/* Add Recipe Request Button */}
-          <button className="bg-orange-50 border border-orange-300 text-orange-700 px-4 py-2 rounded-full font-medium hover:bg-orange-100 transition">
+          <button onClick={() => (window.location.href = "/addreciperequest")} className="bg-orange-50 border border-orange-300 text-orange-700 px-4 py-2 rounded-full font-medium hover:bg-orange-100 transition">
             + Add recipe request
           </button>
 

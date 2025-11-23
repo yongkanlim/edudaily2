@@ -15,6 +15,8 @@ import YourQuestions from "./pages/YourQuestion";
 import YourAnswers from "./pages/YourAnswer";
 import YourLikes from "./pages/YourLikes";
 import YourRecipes from "./pages/YourRecipes";
+import AddRecipeRequest from "./pages/AddRecipeRequest";
+import EditPost from "./pages/EditPost";
 
 export default function App() {
   return (
@@ -35,6 +37,8 @@ export default function App() {
         <Route path="/your-answers" element={<YourAnswers />} />
         <Route path="/your-likes" element={<YourLikes />} />
         <Route path="/your-recipes" element={<YourRecipes />} />
+        <Route path="/addreciperequest" element={<AddRecipeRequest />} />
+        <Route path="/edit-post/:postid" element={<EditPost />} />
       </Routes>
     </BrowserRouter>
   );

@@ -56,59 +56,76 @@ export default function ProfilePage() {
   };
 
   // ✅ Handle profile picture upload
-  const handleImageUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+const handleImageUpload = async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
 
-    const filePath = `profiles/${Date.now()}_${file.name}`;
-    const { data, error } = await supabase.storage
-      .from("images")
-      .upload(filePath, file);
+  const filePath = `profiles/${Date.now()}_${file.name}`;
+  const { data, error } = await supabase.storage
+    .from("images")
+    .upload(filePath, file);
 
-    if (error) {
-      console.error("❌ Upload failed:", error.message);
-      return;
-    }
+  if (error) {
+    console.error("❌ Upload failed:", error.message);
+    return;
+  }
 
-    const { data: publicUrl } = supabase.storage
-      .from("images")
-      .getPublicUrl(filePath);
+  const { data: publicUrlData, error: urlError } = await supabase.storage
+    .from("images")
+    .getPublicUrl(filePath);
 
-    setProfile({ ...profile, profilepicture: publicUrl.publicUrl });
-    setImagePreview(publicUrl.publicUrl);
-  };
+  if (urlError) {
+    console.error("❌ Failed to get public URL:", urlError.message);
+    return;
+  }
 
-  // ✅ Handle save/update (fixed for Supabase NOT NULL columns)
+  setProfile({ ...profile, profilepicture: publicUrlData.publicUrl });
+  setImagePreview(publicUrlData.publicUrl);
+};
+
+// Save profile
 const handleSave = async () => {
   if (!profile) return;
   setSaving(true);
 
-  // Ensure all required fields have valid default values (NOT NULL-safe)
-  const updates = {
+  const profileUpdates = {
     gender: profile.gender?.trim() || "Not specified",
     age: profile.age ? parseInt(profile.age) : 0,
     country: profile.country?.trim() || "Not specified",
     profilepicture:
       profile.profilepicture ||
       "https://cdn-icons-png.flaticon.com/512/847/847969.png",
-    updateprofiledate: new Date(),
   };
 
-  // ✅ Perform the update
-  const { error } = await supabase
-    .from("profile")
-    .update(updates)
-    .eq("userid", profile.userid);
+  const userId = profile.userid; // ensure userid exists
+  if (!userId) {
+    alert("❌ User ID missing!");
+    setSaving(false);
+    return;
+  }
 
-  if (error) {
+  // Update profile
+  const { error: profileError } = await supabase
+    .from("profile")
+    .update(profileUpdates)
+    .eq("userid", userId);
+
+  // Update username in users table
+  const { error: userError } = await supabase
+    .from("users")
+    .update({ username: profile.username?.trim() || "Full Name" })
+    .eq("userid", userId);
+
+  if (profileError || userError) {
     alert("❌ Failed to update profile!");
-    console.error(error);
+    console.error(profileError || userError);
   } else {
     alert("✅ Profile updated successfully!");
   }
 
   setSaving(false);
 };
+
 
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
@@ -174,8 +191,8 @@ const handleSave = async () => {
           type="text"
           value={profile.username || ""}
           name="username"
-          disabled
-          className="w-full border border-gray-200 rounded-md px-3 py-2 bg-gray-50 text-gray-700"
+          onChange={handleChange}
+          className="w-full border border-gray-200 rounded-md px-3 py-2 text-gray-700"
         />
       </div>
 
@@ -242,9 +259,9 @@ const handleSave = async () => {
         </div>
       </div>
 
-      <button className="mt-4 text-orange-600 text-sm border border-orange-600 px-3 py-1.5 rounded-md hover:bg-orange-50 transition">
+      {/* <button className="mt-4 text-orange-600 text-sm border border-orange-600 px-3 py-1.5 rounded-md hover:bg-orange-50 transition">
         + Edit Email Address
-      </button>
+      </button> */}
     </div>
   </div>
 </div>

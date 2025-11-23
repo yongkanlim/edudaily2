@@ -16,7 +16,8 @@ const [commentsCount, setCommentsCount] = useState({});
 const [userLikes, setUserLikes] = useState({});
 const [userFavorites, setUserFavorites] = useState({});
 const [userIdInt, setUserIdInt] = useState(null);
-
+const [activeHash, setActiveHash] = useState(window.location.hash || "#all");
+const [openMenu, setOpenMenu] = useState(null);
 
   // ✅ Fetch posts from Supabase
  const fetchPosts = async (userIdInt) => {
@@ -221,6 +222,19 @@ const toggleFavorite = async (postid) => {
   }
 };
 
+const handleDelete = async (postid) => {
+  if (!window.confirm("Are you sure you want to delete this post?")) return;
+
+  const { error } = await supabase
+    .from("communitypost")
+    .update({ status: "Deleted" })
+    .eq("postid", postid);
+
+  if (!error) {
+    setPosts(posts.filter((p) => p.postid !== postid));
+    alert("Post deleted.");
+  }
+};
 
   return (
     <div className="bg-white min-h-screen">
@@ -235,12 +249,18 @@ const toggleFavorite = async (postid) => {
               </h3>
               <ul className="text-sm text-gray-700 space-y-3">
               <li
-                  onClick={() => {
-                    window.location.hash = "questions";   // keep your original behavior
-                    setFilterTag("Question");             // new filter
-                  }}
-                  className="flex items-center gap-2 text-orange-600 font-semibold cursor-pointer"
-                >
+                    onClick={() => {
+                      const hash = "#questions";
+                      window.location.hash = hash; 
+                      setFilterTag("Question");
+                      setActiveHash(hash); // 🔥 mark as active
+                    }}
+                    className={`flex items-center gap-2 cursor-pointer ${
+                      activeHash === "#questions"
+                        ? "text-orange-600 font-semibold"
+                        : "text-gray-700 hover:text-orange-600"
+                    }`}
+                  >
                     <span className="text-lg">💬</span> Questions
                   </li>
 
@@ -253,24 +273,31 @@ const toggleFavorite = async (postid) => {
 
 
                   <li
-                    onClick={() => {
-                      window.location.hash = "recipe";      // keep your original behavior
-                      setFilterTag("Recipe");               // new filter
-                    }}
-                    className="hover:text-orange-600 cursor-pointer"
-                  >
-                    🍳 Recipe
-                  </li>
-
+                      onClick={() => {
+                        const hash = "#recipe";
+                        window.location.hash = hash;
+                        setFilterTag("Recipe");
+                        setActiveHash(hash);
+                      }}
+                      className={`cursor-pointer ${
+                        activeHash === "#recipe" ? "text-orange-600 font-semibold" : "hover:text-orange-600"
+                      }`}
+                    >
+                      🍳 Recipe
+                    </li>
                   <li
-                    onClick={() => {
-                      window.location.hash = "all";         // optional
-                      setFilterTag(null);                   // reset filter
-                    }}
-                    className="hover:text-orange-600 cursor-pointer"
-                  >
-                    ⭐ All Posts
-                  </li>
+                      onClick={() => {
+                        const hash = "#all";
+                        window.location.hash = hash;
+                        setFilterTag(null);
+                        setActiveHash(hash);
+                      }}
+                      className={`cursor-pointer ${
+                        activeHash === "#all" ? "text-orange-600 font-semibold" : "hover:text-orange-600"
+                      }`}
+                    >
+                      ⭐ All Posts
+                    </li>
               </ul>
 
               <h3 className="text-gray-500 text-xs font-semibold uppercase tracking-wide mb-3 mt-7">
@@ -370,19 +397,88 @@ const toggleFavorite = async (postid) => {
         className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition cursor-pointer"
       >
         {/* 👤 User info */}
-        <div className="flex items-start gap-3 mb-3">
-          <img
-            src={post.profilepicture}
-            alt="User"
-            className="w-10 h-10 rounded-full border border-gray-200 object-cover"
-          />
-          <div>
-            <h4 className="font-semibold text-gray-800">{post.username}</h4>
-            <p className="text-xs text-gray-400">
-              {new Date(post.dateposted).toLocaleString()}
-            </p>
-          </div>
+       <div className="flex items-start gap-3 mb-3 relative">
+  <img
+    src={post.profilepicture}
+    alt="User"
+    className="w-10 h-10 rounded-full border border-gray-200 object-cover"
+  />
+  <div>
+    <h4 className="font-semibold text-gray-800">{post.username}</h4>
+    <p className="text-xs text-gray-400">
+      {new Date(post.dateposted).toLocaleString()}
+    </p>
+  </div>
+
+  {/* ▪▪▪ Options button (only show if this user owns the post) */}
+  {userIdInt === post.userid && (
+    <div className="ml-auto">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpenMenu(openMenu === post.postid ? null : post.postid);
+        }}
+        className="px-2 py-1 text-gray-500 hover:text-gray-800"
+      >
+        •••
+      </button>
+
+      {/* Dropdown menu */}
+      {openMenu === post.postid && (
+        <div
+          className="absolute right-0 top-10 bg-white border border-gray-200 shadow-lg rounded-md text-sm w-32 z-20"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex flex-col gap-2">
+          <button
+            className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 rounded-md"
+            onClick={() => navigate(`/edit-post/${post.postid}`)}
+          >
+           <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+              />
+            </svg>
+
+            Edit
+          </button>
+          <button
+            className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 text-red-600 rounded-md"
+            onClick={() => handleDelete(post.postid)}
+          >
+           <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+              />
+            </svg>
+
+            Delete
+          </button>
         </div>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+
 
         {/* 📝 Post content */}
         <h3 className="font-semibold text-gray-900 mb-1 text-lg">{post.title}</h3>

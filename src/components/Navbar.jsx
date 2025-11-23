@@ -9,6 +9,8 @@ export default function Navbar() {
   const navigate = useNavigate();
   const user = useSupabaseUser();
   const [avatar, setAvatar] = useState(null);
+  const [notifications, setNotifications] = useState([]);
+  const [showNotif, setShowNotif] = useState(false);
 
 // Watch for Supabase user changes (so avatar updates live)
 useEffect(() => {
@@ -52,6 +54,100 @@ useEffect(() => {
   fetchAvatar();
 }, [user]);
 
+useEffect(() => {
+  const fetchNotifications = async () => {
+    if (!user?.email) return;
+
+    // Get user ID
+    const { data: userRow } = await supabase
+      .from("users")
+      .select("userid")
+      .eq("email", user.email)
+      .single();
+
+    if (!userRow) return;
+
+    const myUserID = userRow.userid;
+
+    // Fetch likes
+    const { data: likeRows } = await supabase
+      .from("post_likes")
+      .select("postid, userid, created_at, users(username)")
+      .neq("userid", myUserID)
+      .in(
+        "postid",
+        (
+          await supabase
+            .from("communitypost")
+            .select("postid")
+            .eq("userid", myUserID)
+        ).data?.map((p) => p.postid) || []
+      );
+
+    // Fetch comments
+    const { data: commentRows, error: commentError } = await supabase
+  .from("suggestions")
+  .select(`
+    postid,
+    userid,
+    datesuggested,
+    users(username)
+  `)
+  .neq("userid", myUserID)
+  .in(
+    "postid",
+    (await supabase.from("communitypost").select("postid").eq("userid", myUserID)).data?.map(p => p.postid) || []
+  );
+
+if (commentError) console.error("Error fetching comments:", commentError);
+
+    // Fetch favorites
+    const { data: favRows } = await supabase
+      .from("post_favorites")
+      .select("postid, userid, created_at, users(username)")
+      .neq("userid", myUserID)
+      .in(
+        "postid",
+        (
+          await supabase
+            .from("communitypost")
+            .select("postid")
+            .eq("userid", myUserID)
+        ).data?.map((p) => p.postid) || []
+      );
+
+    const notifList = [];
+
+    likeRows?.forEach((row) =>
+      notifList.push({
+        type: "like",
+        user: row.users?.username || "Someone",
+        postid: row.postid,
+      })
+    );
+
+    commentRows?.forEach((row) =>
+      notifList.push({
+        type: "comment",
+        user: row.users?.username || "Someone",
+        postid: row.postid,
+      })
+    );
+
+    favRows?.forEach((row) =>
+      notifList.push({
+        type: "favorite",
+        user: row.users?.username || "Someone",
+        postid: row.postid,
+      })
+    );
+
+    setNotifications(notifList.reverse());
+  };
+
+  fetchNotifications();
+}, [user]);
+
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Recipes", path: "/recipes" },
@@ -92,15 +188,26 @@ useEffect(() => {
   {location.pathname === "/community" && (
     <button
       onClick={() => navigate("/create-question")}
-      className="bg-orange-600 text-white px-3 py-1.5 rounded-sm text-sm font-medium hover:bg-orange-700 transition-all"
+      className="flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-orange-700 transition-all"
     >
-      ➕ Create Post
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-4 h-4"
+      >
+        <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
+      </svg>
+
+      Create Post
     </button>
   )}
 
   {/* 🔔 Notification Bell */}
+  <div className="relative">
+  {/* Notification Bell */}
   <button
-    onClick={() => alert("No new notifications")}
+    onClick={() => setShowNotif(!showNotif)}
     className="relative p-2 text-gray-600 hover:text-orange-600 transition"
   >
     <svg
@@ -117,10 +224,38 @@ useEffect(() => {
         d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V10a6 6 0 10-12 0v4a2.032 2.032 0 01-.595 1.595L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
       />
     </svg>
-
-    {/* Red notification dot (optional) */}
     <span className="absolute top-1 right-1 block w-2 h-2 bg-red-500 rounded-full"></span>
   </button>
+
+  {/* Dropdown */}
+  {showNotif && (
+    <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-gray-200 shadow-lg rounded-lg z-50">
+      <div className="p-3 font-semibold text-gray-700 border-b">Notifications</div>
+
+      <div className="max-h-80 overflow-y-auto">
+        {notifications.length === 0 ? (
+          <div className="p-4 text-sm text-gray-500 text-center">
+            No notifications yet
+          </div>
+        ) : (
+          notifications.map((n, index) => (
+            <div
+              key={index}
+              onClick={() => navigate(`/community/${n.postid}`)}
+              className="px-4 py-3 hover:bg-gray-100 cursor-pointer text-sm"
+            >
+              <span className="font-semibold text-orange-600">{n.user}</span>{" "}
+              {n.type === "like" && "liked your post"}
+              {n.type === "comment" && "commented on your post"}
+              {n.type === "favorite" && "favorited your post"}
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  )}
+</div>
+
 
   {/* Profile / Login buttons */}
   {user ? (
@@ -133,29 +268,32 @@ useEffect(() => {
       />
 
       {open && (
-        <div className="absolute bg-white border rounded-md shadow-md mt-2 right-0 w-40">
-          <button
-            onClick={() => {
-              navigate("/profile");
-              setOpen(false);
-            }}
-            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            View Profile
-          </button>
+  <div className="absolute right-0 top-full mt-2 w-40 bg-white border border-gray-200 shadow-lg rounded-lg z-50">
+    <div className="flex flex-col">
+      <button
+        onClick={() => {
+          navigate("/profile");
+          setOpen(false);
+        }}
+        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition-all"
+      >
+        View Profile
+      </button>
 
-          <button
-            onClick={async () => {
-              await supabase.auth.signOut();
-              localStorage.removeItem("user");
-              window.location.reload();
-            }}
-            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            Logout
-          </button>
-        </div>
-      )}
+      <button
+        onClick={async () => {
+          await supabase.auth.signOut();
+          localStorage.removeItem("user");
+          window.location.reload();
+        }}
+        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition-all"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   ) : (
     <>

@@ -101,11 +101,11 @@ export default function IngredientPage() {
           </div>
         </div>
 
-        <img
+        {/* <img
           src="https://i.pravatar.cc/40"
           alt="User"
           className="w-10 h-10 rounded-full border border-gray-300"
-        />
+        /> */}
       </div>
 
       {/* Main Content */}

@@ -180,7 +180,7 @@ export default function CreateQuestion() {
         <main className="lg:col-span-7 space-y-6">
           <div className="bg-white rounded-xl border border-gray-100 p-6 shadow-md hover:shadow-lg transition">
             <h1 className="text-2xl font-bold text-gray-800 mb-6">
-              🧠 Ask a New Question
+              Create a Post
             </h1>
 
             <form onSubmit={handleSubmit} className="space-y-5">
