@@ -243,13 +243,13 @@ const handleSave = async () => {
             className="h-5 w-5 text-orange-600"
             fill="none"
             viewBox="0 0 24 24"
+            strokeWidth="1.5"
             stroke="currentColor"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth="2"
-              d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0z"
+              d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
             />
           </svg>
         </div>
@@ -258,6 +258,89 @@ const handleSave = async () => {
           <p className="text-gray-400 text-sm">1 month ago</p>
         </div>
       </div>
+
+{/* Role Section */}
+<div className="mt-6">
+  <h3 className="text-gray-800 font-semibold mb-2">Role</h3>
+  <div
+    onClick={async () => {
+      const secureWord = prompt(
+        "Enter secure word to change role:\n- Admin secure word\n- Customer secure word"
+      );
+      if (!secureWord) return;
+
+      let newRole = null;
+      if (secureWord === "admin") newRole = "Admin";
+      else if (secureWord === "customer") newRole = "Customer";
+      else {
+        alert("❌ Incorrect secure word!");
+        return;
+      }
+
+      try {
+        const { error } = await supabase
+          .from("users")
+          .update({ role: newRole })
+          .eq("userid", profile.userid);
+
+        if (error) {
+          alert("❌ Failed to update role!");
+          console.error(error);
+        } else {
+          setProfile({ ...profile, role: newRole });
+          alert(`✅ Role updated to ${newRole}!`);
+        }
+      } catch (err) {
+        console.error(err);
+        alert("❌ Error updating role!");
+      }
+    }}
+    className="flex items-center gap-3 cursor-pointer bg-orange-50 border border-orange-100 rounded-lg px-4 py-3 hover:bg-orange-100 transition"
+  >
+    <div className="bg-orange-100 p-2 rounded-full">
+      {profile.role === "Admin" ? (
+        // Admin icon
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="h-5 w-5 text-orange-600"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
+          />
+        </svg>
+      ) : (
+        // Customer icon
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="h-5 w-5 text-orange-600"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+          />
+        </svg>
+      )}
+    </div>
+    <div>
+      <p className="text-gray-700 font-medium">{profile.role || "Customer"}</p>
+      <p className="text-gray-400 text-sm">
+        Click to change (requires secure word)
+      </p>
+    </div>
+  </div>
+</div>
+
 
       {/* <button className="mt-4 text-orange-600 text-sm border border-orange-600 px-3 py-1.5 rounded-md hover:bg-orange-50 transition">
         + Edit Email Address

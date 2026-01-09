@@ -1,390 +1,455 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "../supabaseClient";
 import Navbar from "../components/Navbar";
 
 export default function AddRecipeRequest() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [recipeImage, setRecipeImage] = useState(null);
+  const [recipeImagePreview, setRecipeImagePreview] = useState(null);
+  const [videoUrl, setVideoUrl] = useState("");
   const [estimatedTime, setEstimatedTime] = useState("");
-  const [dietCategory, setDietCategory] = useState([]);
-  const [cuisineType, setCuisineType] = useState([]);
-  const [allergies, setAllergies] = useState([]);
-  const [goal, setGoal] = useState([]);
-  const [instructions, setInstructions] = useState([{ step: "", image: null, preview: null }]);
-  const [videoFile, setVideoFile] = useState(null);
-  const [videoURL, setVideoURL] = useState("");
-  const [imageFile, setImageFile] = useState(null);
-  const [instructionImage, setInstructionImage] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [successMsg, setSuccessMsg] = useState("");
-  const [imagePreview, setImagePreview] = useState(null);
 
-  const dietOptions = ["Vegetarian", "Vegan", "Pescatarian", "Halal", "Low-Carb"];
-  const cuisineOptions = ["Malay", "Chinese", "Indian", "Western", "Thai", "Japanese", "Korean"];
-  const allergyOptions = ["Gluten", "Dairy", "Egg", "Nut", "Soy", "Shell-fish"];
-  const goalOptions = ["Weight loss", "Quick meals", "Healthy eating", "Weight gain"];
+  const [instructions, setInstructions] = useState([
+    { text: "", image: null, imagePreview: null },
+  ]);
 
   const [ingredients, setIngredients] = useState([{ name: "", quantity: "" }]);
 
-  function addIngredient() {
-  setIngredients([...ingredients, { name: "", quantity: "" }]);
-}
+  const [dietaryCategories, setDietaryCategories] = useState([]);
+  const [cuisineTypes, setCuisineTypes] = useState([]);
+  const [allergies, setAllergies] = useState([]);
+  const [goals, setGoals] = useState([]);
 
-function removeIngredient(index) {
-  const updated = [...ingredients];
-  updated.splice(index, 1);
-  setIngredients(updated);
-}
+  const [showNewCategoryInput, setShowNewCategoryInput] = useState({
+    dietary: false,
+    cuisine: false,
+    allergy: false,
+    goal: false,
+  });
 
-function handleIngredientChange(index, field, value) {
-  const updated = [...ingredients];
-  updated[index][field] = value;
-  setIngredients(updated);
-}
+  const [newCategory, setNewCategory] = useState("");
+  const [userId, setUserId] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // Multi-select toggle
-  function toggleOption(option, selected, setSelected) {
-    if (selected.includes(option)) {
-      setSelected(selected.filter((o) => o !== option));
-    } else {
-      setSelected([...selected, option]);
-    }
-  }
+  const defaultDietary = [
+    "Vegetarian",
+    "Vegan",
+    "Pescatarian",
+    "High-Protein",
+    "Halal",
+    "Low-Carb",
+  ];
+  const defaultAllergies = [
+    "Gluten",
+    "Legumes",
+    "Grain",
+    "Fruit",
+    "Nut",
+    "Shell-fish",
+    "Dairy",
+    "Egg",
+    "Soy",
+  ];
+  const defaultCuisine = [
+    "Malay",
+    "Chinese",
+    "Indian",
+    "Western",
+    "Thai",
+    "Japanese",
+    "Korean",
+  ];
+  const defaultGoals = [
+    "Weight loss",
+    "Quick meals",
+    "Healthy eating",
+    "Weight gain",
+  ];
 
-  // Dynamic instruction steps
-  function addStep() {
-    setInstructions([...instructions, { step: "", image: null, preview: null }]);
-  }
+  // ✅ Get logged-in user
+  useEffect(() => {
+    const fetchUser = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      if (!session) {
+        window.location.href = "/login";
+        return;
+      }
+      const { data: userData, error } = await supabase
+        .from("users")
+        .select("userid")
+        .eq("email", session.user.email)
+        .single();
+      if (!error && userData) setUserId(userData.userid);
+    };
+    fetchUser();
+  }, []);
 
-  function removeStep(index) {
-    const updated = [...instructions];
-    updated.splice(index, 1);
-    setInstructions(updated);
-  }
+  // ✅ Recipe main image upload
+  const handleRecipeImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-  function handleStepChange(index, field, value) {
-    const updated = [...instructions];
-    updated[index][field] = value;
-    setInstructions(updated);
-  }
-
-  async function uploadFile(file, folder) {
-    if (!file) return null;
-    const fileName = `${folder}_${Date.now()}_${file.name}`;
-    const { error } = await supabase.storage.from("recipe-images").upload(fileName, file);
-    if (error) return null;
-    return supabase.storage.from("recipe-images").getPublicUrl(fileName).data.publicUrl;
-  }
-
-  async function submitRequest(e) {
-    e.preventDefault();
+    const fileName = `${Date.now()}_${file.name}`;
     setLoading(true);
-    setSuccessMsg("");
+    const { error } = await supabase.storage
+      .from("recipe-images")
+      .upload(fileName, file);
+    if (error) {
+      alert("Failed to upload recipe image!");
+      setLoading(false);
+      return;
+    }
+    const { data } = supabase.storage.from("recipe-images").getPublicUrl(fileName);
+    setRecipeImage(data.publicUrl);
+    setRecipeImagePreview(URL.createObjectURL(file));
+    setLoading(false);
+  };
 
-    try {
-      const imageURL = await uploadFile(imageFile, "recipe");
+  // ✅ Instruction image upload
+  const handleInstructionImageUpload = async (file, index) => {
+    if (!file) return;
+    const fileName = `${Date.now()}_${file.name}`;
+    setLoading(true);
+    const { error } = await supabase.storage
+      .from("recipe-images")
+      .upload(fileName, file);
+    if (error) {
+      alert("Failed to upload instruction image!");
+      setLoading(false);
+      return;
+    }
+    const { data } = supabase.storage.from("recipe-images").getPublicUrl(fileName);
 
-      // Upload all instruction step images
-      const stepsWithImages = await Promise.all(
-        instructions.map(async (inst) => ({
-          step: inst.step,
-          image: inst.image ? await uploadFile(inst.image, "instruction") : null,
-        }))
-      );
+    setInstructions((prev) =>
+      prev.map((inst, i) =>
+        i === index ? { ...inst, image: data.publicUrl, imagePreview: URL.createObjectURL(file) } : inst
+      )
+    );
+    setLoading(false);
+  };
 
-      let videoFileURL = videoFile ? await uploadFile(videoFile, "video") : null;
+  // ✅ Add new instruction
+  const addInstruction = () => setInstructions([...instructions, { text: "", image: null, imagePreview: null }]);
+  const removeInstruction = (index) =>
+    setInstructions(instructions.filter((_, i) => i !== index));
 
-      const { error } = await supabase.from("RecipeRequest").insert([
-        {
-            title,
-            description,
-            estimatedtime: estimatedTime || null,
-            dietarycategory: dietCategory.length ? dietCategory.join(", ") : null,
-            cuisinetype: cuisineType.length ? cuisineType.join(", ") : null,
-            allergies: allergies.length ? allergies.join(", ") : null,
-            goal: goal.length ? goal.join(", ") : null,
-            ingredientstext: JSON.stringify(ingredients), // <-- store ingredients as JSON
-            instructions: JSON.stringify(stepsWithImages),
-            imageurl: imageURL,
-            videourl: videoFileURL || videoURL || null,
-            status: "Pending",
-            userid: (await supabase.auth.getUser()).data.user?.id,
-        },
-        ]);
+  // ✅ Add new ingredient
+  const addIngredient = () => setIngredients([...ingredients, { name: "", quantity: "" }]);
+  const removeIngredient = (index) =>
+    setIngredients(ingredients.filter((_, i) => i !== index));
 
-
-      if (error) throw error;
-
-      setSuccessMsg("🎉 Recipe request submitted successfully!");
-      // Reset form
-      setTitle(""); setDescription(""); setEstimatedTime("");
-      setDietCategory([]); setCuisineType([]); setAllergies([]); setGoal([]);
-      setInstructions([{ step: "", image: null, preview: null }]);
-      setVideoFile(null); setVideoURL(""); setImageFile(null); setImagePreview(null);
-    } catch (err) {
-      console.error(err.message);
+  // ✅ Handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!title.trim() || !description.trim()) {
+      alert("Please fill in title and description!");
+      return;
     }
 
+    setLoading(true);
+    const ingredientText = ingredients
+      .filter((i) => i.name.trim())
+      .map((i) => `${i.name.trim()}, ${i.quantity.trim()}`)
+      .join("\n");
+
+    const instructionText = instructions
+      .map((inst, i) => {
+        const imgTag = inst.image ? `<img src="${inst.image}" />` : "";
+        return `${i + 1}. ${inst.text}${imgTag}`;
+      })
+      .join("\n");
+
+    const { error } = await supabase.from("reciperequest").insert([
+      {
+        userid: userId,
+        title: title.trim(),
+        description: description.trim(),
+        ingredientstext: ingredientText,
+        instructions: instructionText,
+        imageurl: recipeImage,
+        videourl: videoUrl || null,
+        dietarycategory: dietaryCategories.join(", ") || null,
+        cuisinetype: cuisineTypes.join(", ") || null,
+        allergies: allergies.join(", ") || null,
+        goal: goals.join(", ") || null,
+        status: "Pending",
+        estimatedtime: estimatedTime ? parseInt(estimatedTime) : null,
+      },
+    ]);
     setLoading(false);
-  }
 
-  // Styled file input component
-  function FileInput({ label, file, setFile }) {
-    return (
-      <div>
-        <label className="font-semibold mb-2 block">{label}</label>
-        <label className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer border border-gray-300">
-          <span>Select File</span>
-          <input
-            type="file"
-            className="hidden"
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-        </label>
-        {file && <p className="mt-2 text-sm text-gray-500">{file.name}</p>}
-      </div>
-    );
-  }
+    if (error) {
+      console.error(error);
+      alert("Failed to add recipe request!");
+    } else {
+      alert("Recipe request added successfully!");
+      setTitle("");
+      setDescription("");
+      setRecipeImage(null);
+      setRecipeImagePreview(null);
+      setVideoUrl("");
+      setInstructions([{ text: "", image: null, imagePreview: null }]);
+      setIngredients([{ name: "", quantity: "" }]);
+      setDietaryCategories([]);
+      setCuisineTypes([]);
+      setAllergies([]);
+      setGoals([]);
+    }
+  };
 
-  return (
-    <div className="bg-white min-h-screen">
-      <Navbar />
-      <div className="max-w-5xl mx-auto p-6 mt-8">
-        <h1 className="text-3xl font-bold text-orange-700 mb-6">📝 Submit a New Recipe Request</h1>
-        {successMsg && (
-          <p className="bg-green-100 text-green-700 p-3 rounded mb-4">{successMsg}</p>
-        )}
-
-        <form className="space-y-6" onSubmit={submitRequest}>
-          <div>
-            <label className="font-semibold">Recipe Title</label>
-            <input
-              className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-300 outline-none"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="font-semibold">Description</label>
-            <textarea
-              className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-300 outline-none"
-              rows="4"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="font-semibold">Estimated Time (Minutes)</label>
-              <input
-                type="number"
-                className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-300 outline-none"
-                value={estimatedTime}
-                onChange={(e) => setEstimatedTime(e.target.value)}
-              />
+  // ✅ Helper to render category selectors
+  const CategorySelector = ({ title, items, selected, setSelected, type }) => (
+    <div className="mb-4">
+      <h4 className="font-semibold mb-2">{title}</h4>
+      <div className="flex flex-wrap gap-2">
+        {[...items, ...selected.filter((s) => !items.includes(s))].map((item) => (
+            <div
+              key={item}
+              onClick={() =>
+                selected.includes(item)
+                  ? setSelected(selected.filter((t) => t !== item))
+                  : setSelected([...selected, item])
+              }
+              className={`px-3 py-1 rounded-full cursor-pointer border text-sm transition ${
+                selected.includes(item)
+                  ? "bg-orange-600 text-white border-orange-600"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+              }`}
+            >
+              {item}
             </div>
-          </div>
+          ))}
 
-          {/* Multi-select options */}
-          <div>
-            <label className="font-semibold">Dietary Category</label>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {dietOptions.map((opt) => (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => toggleOption(opt, dietCategory, setDietCategory)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium border transition ${
-                    dietCategory.includes(opt)
-                      ? "bg-orange-600 text-white border-orange-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="font-semibold">Cuisine Type</label>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {cuisineOptions.map((opt) => (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => toggleOption(opt, cuisineType, setCuisineType)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium border transition ${
-                    cuisineType.includes(opt)
-                      ? "bg-orange-600 text-white border-orange-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="font-semibold">Allergies</label>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {allergyOptions.map((opt) => (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => toggleOption(opt, allergies, setAllergies)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium border transition ${
-                    allergies.includes(opt)
-                      ? "bg-orange-600 text-white border-orange-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="font-semibold">Goal</label>
-            <div className="flex flex-wrap gap-2 mt-2">
-              {goalOptions.map((opt) => (
-                <button
-                  key={opt}
-                  type="button"
-                  onClick={() => toggleOption(opt, goal, setGoal)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium border transition ${
-                    goal.includes(opt)
-                      ? "bg-orange-600 text-white border-orange-600"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <FileInput label="Recipe Image" file={imageFile} setFile={(f) => { setImageFile(f); setImagePreview(f ? URL.createObjectURL(f) : null); }} />
-          {imagePreview && <img src={imagePreview} alt="Recipe Preview" className="mt-3 w-48 h-48 object-cover rounded-lg border" />}
-
-<div>
-  <label className="font-semibold">Ingredients</label>
-  {ingredients.map((ing, i) => (
-    <div key={i} className="flex gap-2 mb-2">
-      <input
-        type="text"
-        placeholder="Ingredient Name"
-        className="border p-2 rounded-lg w-1/2 focus:ring-2 focus:ring-orange-300 outline-none"
-        value={ing.name}
-        onChange={(e) => handleIngredientChange(i, "name", e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Quantity"
-        className="border p-2 rounded-lg w-1/2 focus:ring-2 focus:ring-orange-300 outline-none"
-        value={ing.quantity}
-        onChange={(e) => handleIngredientChange(i, "quantity", e.target.value)}
-        required
-      />
-      {ingredients.length > 1 && (
-        <button
-          type="button"
-          onClick={() => removeIngredient(i)}
-          className="px-2 bg-red-100 hover:bg-red-200 rounded text-red-700"
+        <div
+          onClick={() => setShowNewCategoryInput({ ...showNewCategoryInput, [type]: true })}
+          className="px-3 py-1 rounded-full cursor-pointer border border-dashed text-gray-500 hover:bg-gray-100 text-sm"
         >
-          Remove
-        </button>
-      )}
-    </div>
-  ))}
-  <button
-    type="button"
-    onClick={addIngredient}
-    className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium mt-2"
-  >
-    + Add Ingredient
-  </button>
-</div>
-
-          {/* Cooking Instructions Steps */}
-<div>
-  <label className="font-semibold">Cooking Instructions</label>
-  {instructions.map((inst, i) => (
-    <div key={i} className="border p-4 rounded-lg mb-4">
-      <textarea
-        className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-300 outline-none mb-2"
-        rows="3"
-        placeholder={`Step ${i + 1}`}
-        value={inst.step}
-        onChange={(e) => handleStepChange(i, "step", e.target.value)}
-      />
-      <FileInput
-        label="Step Image (Optional)"
-        file={inst.image}
-        setFile={(f) => {
-          handleStepChange(i, "image", f);
-          handleStepChange(i, "preview", f ? URL.createObjectURL(f) : null);
-        }}
-      />
-      {inst.preview && (
-        <img
-          src={inst.preview}
-          alt={`Step ${i + 1} Preview`}
-          className="mt-2 w-32 h-32 object-cover rounded"
+          + Add
+        </div>
+      </div>
+      {showNewCategoryInput[type] && (
+        <input
+          type="text"
+          autoFocus
+          placeholder={`Add new ${title}`}
+          className="mt-2 px-3 py-2 border rounded-md w-full focus:ring-2 focus:ring-orange-400 outline-none"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              const val = e.target.value.trim();
+              if (val && !selected.includes(val)) {
+                setSelected([...selected, val]);
+              }
+              setShowNewCategoryInput({ ...showNewCategoryInput, [type]: false });
+            }
+          }}
+          onBlur={() => setShowNewCategoryInput({ ...showNewCategoryInput, [type]: false })}
         />
       )}
     </div>
-  ))}
+  );
 
-  {/* Add / Remove Step Buttons */}
-  <div className="flex gap-2">
-    <button
-      type="button"
-      onClick={addStep}
-      className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium"
-    >
-      + Add Step
-    </button>
-    {instructions.length > 1 && (
-      <button
-        type="button"
-        onClick={() => removeStep(instructions.length - 1)}
-        className="px-4 py-2 bg-red-100 hover:bg-red-200 rounded-lg text-red-700 font-medium"
-      >
-        - Remove Step
-      </button>
-    )}
-  </div>
-</div>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+      <div className="max-w-5xl mx-auto py-10 px-4">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Add Recipe Request</h1>
 
+        <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-xl shadow-md">
+          {/* Title */}
+          <input
+            type="text"
+            placeholder="Recipe Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-400 outline-none"
+          />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <FileInput label="Upload Tutorial Video (Optional)" file={videoFile} setFile={setVideoFile} />
-            </div>
-            <div>
-              <label className="font-semibold">Or Enter Video URL</label>
-              <input
-                type="url"
-                className="w-full border p-2 rounded-lg focus:ring-2 focus:ring-orange-300 outline-none"
-                placeholder="https://..."
-                value={videoURL}
-                onChange={(e) => setVideoURL(e.target.value)}
-              />
-            </div>
+          {/* Description */}
+          <textarea
+            rows="4"
+            placeholder="Recipe description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-400 outline-none resize-none"
+          ></textarea>
+
+          {/* Recipe main image */}
+          <div>
+            <label className="block mb-2 font-semibold">Recipe Main Image</label>
+            <label className="inline-flex items-center px-4 py-2 bg-orange-100 text-orange-700 rounded-md cursor-pointer hover:bg-blue-200 transition mt-2">
+                {recipeImagePreview ? "Change Image" : "Upload Image"}
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleRecipeImageUpload}
+                  className="hidden"
+                />
+              </label>
+
+            {recipeImagePreview && (
+              <img src={recipeImagePreview} alt="Preview" className="mt-3 w-64 h-64 object-cover rounded-md border" />
+            )}
           </div>
 
+          {/* Video URL */}
+          <div>
+            <label className="block mb-2 font-semibold">Video URL (Optional)</label>
+            <input
+              type="url"
+              placeholder="https://"
+              value={videoUrl}
+              onChange={(e) => setVideoUrl(e.target.value)}
+              className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-400 outline-none"
+            />
+          </div>
+
+<div>
+  <label className="block mb-2 font-semibold">Estimated Time (minutes)</label>
+  <input
+    type="number"
+    placeholder="e.g., 30"
+    value={estimatedTime}
+    onChange={(e) => setEstimatedTime(e.target.value)}
+    className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-400 outline-none"
+  />
+</div>
+
+          {/* Instructions */}
+          <div>
+            <h4 className="font-semibold mb-2">Instructions</h4>
+            {instructions.map((inst, index) => (
+              <div key={index} className="mb-4 border p-3 rounded-md">
+                <textarea
+                  rows="2"
+                  placeholder={`Step ${index + 1}`}
+                  value={inst.text}
+                  onChange={(e) =>
+                    setInstructions((prev) =>
+                      prev.map((i, idx) => (idx === index ? { ...i, text: e.target.value } : i))
+                    )
+                  }
+                  className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-orange-400 outline-none resize-none"
+                />
+                <label className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-md cursor-pointer hover:bg-blue-200 transition mt-2">
+                    {inst.imagePreview ? "Change Step Image" : "Upload Step Image"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleInstructionImageUpload(e.target.files[0], index)}
+                      className="hidden"
+                    />
+                  </label>
+
+               
+                {instructions.length > 1 && (
+                  <button
+                      type="button"
+                      onClick={() => removeInstruction(index)}
+                      className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-md cursor-pointer hover:bg-blue-200 transition mt-2 ml-3"
+                    >
+                      Remove Step
+                    </button>
+                )}
+                {inst.imagePreview && (
+                  <img src={inst.imagePreview} alt="Preview" className="mt-2 w-48 h-48 object-cover rounded-md border" />
+                )}
+
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={addInstruction}
+              className="px-4 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition"
+            >
+              + Add Step
+            </button>
+          </div>
+
+          {/* Ingredients */}
+          <div>
+            <h4 className="font-semibold mb-2">Ingredients</h4>
+            {ingredients.map((ing, idx) => (
+              <div key={idx} className="flex gap-2 mb-2">
+                <input
+                  type="text"
+                  placeholder="Ingredient"
+                  value={ing.name}
+                  onChange={(e) =>
+                    setIngredients((prev) =>
+                      prev.map((i, index) => (index === idx ? { ...i, name: e.target.value } : i))
+                    )
+                  }
+                  className="flex-1 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-orange-400 outline-none"
+                />
+                <input
+                  type="text"
+                  placeholder="Quantity"
+                  value={ing.quantity}
+                  onChange={(e) =>
+                    setIngredients((prev) =>
+                      prev.map((i, index) => (index === idx ? { ...i, quantity: e.target.value } : i))
+                    )
+                  }
+                  className="w-32 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-orange-400 outline-none"
+                />
+                {ingredients.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeIngredient(idx)}
+                    className="text-red-500 hover:underline"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+            ))}
+            <button
+              type="button"
+              onClick={addIngredient}
+              className="px-4 py-2 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition"
+            >
+              + Add Ingredient
+            </button>
+          </div>
+
+          {/* Categories */}
+          <CategorySelector
+            title="Dietary Categories"
+            items={defaultDietary}
+            selected={dietaryCategories}
+            setSelected={setDietaryCategories}
+            type="dietary"
+          />
+          <CategorySelector
+            title="Allergies"
+            items={defaultAllergies}
+            selected={allergies}
+            setSelected={setAllergies}
+            type="allergy"
+          />
+          <CategorySelector
+            title="Cuisine Type"
+            items={defaultCuisine}
+            selected={cuisineTypes}
+            setSelected={setCuisineTypes}
+            type="cuisine"
+          />
+          <CategorySelector
+            title="Goals"
+            items={defaultGoals}
+            selected={goals}
+            setSelected={setGoals}
+            type="goal"
+          />
+
+          {/* Submit */}
           <button
             type="submit"
             disabled={loading}
-            className="bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-orange-700 transition w-full"
+            className="w-full bg-orange-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-orange-700 transition"
           >
             {loading ? "Submitting..." : "Submit Recipe Request"}
           </button>
