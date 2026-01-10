@@ -24,6 +24,13 @@ import EditRecipe from "./pages/admin/EditRecipe";
 import AdminIngredientPage from "./pages/admin/AdminIngredientPage";
 import AddIngredient from "./pages/admin/AddIngredient";
 import EditIngredient from "./pages/admin/EditIngredient";
+import AdminRecipeRequests from "./pages/admin/AdminRecipeRequests";
+import AdminRecipeRequestDetail from "./pages/admin/AdminRecipeRequestDetail";
+import MyRecipeRequests from "./pages/MyRecipeRequests";
+import MyRecipeRequestDetail from "./pages/MyRecipeRequestDetail";
+import EditRecipeRequest from "./pages/EditRecipeRequest";
+import AiChatbot from "./components/AiChatbot";
+import chatbotIcon from "./assets/chatbot.png";
 
 export default function App() {
   return (
@@ -53,7 +60,15 @@ export default function App() {
         <Route path="/admin/ingredientpage" element={<AdminIngredientPage />} />
         <Route path="/admin/add-ingredient" element={<AddIngredient />} />
         <Route path="/admin/edit-ingredient/:id" element={<EditIngredient />} />
+        <Route path="/admin/recipe-requests" element={<AdminRecipeRequests />} />
+        <Route path="/admin/recipe-request/:id" element={<AdminRecipeRequestDetail />} />
+        <Route path="/my-recipe-requests" element={<MyRecipeRequests />} />
+        <Route path="/recipe-request/:id" element={<MyRecipeRequestDetail />} />
+        <Route path="/edit-recipe-request/:id" element={<EditRecipeRequest />} />
       </Routes>
+
+      <AiChatbot apiKey="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" buttonImage={chatbotIcon} position="bottom-right" />
+
     </BrowserRouter>
   );
 }

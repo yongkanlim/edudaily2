@@ -67,11 +67,18 @@ const sortedRecipes = [...filteredRecipes].sort((a, b) => {
       <div className="bg-white border-b shadow-sm">
         {/* Top Controls Row */}
         <div className="flex flex-wrap items-center justify-between px-6 lg:px-16 py-4 gap-4">
+          <div className="flex gap-3">
           {/* Add Recipe Request Button */}
           <button onClick={() => (window.location.href = "/addreciperequest")} className="bg-orange-50 border border-orange-300 text-orange-700 px-4 py-2 rounded-full font-medium hover:bg-orange-100 transition">
             + Add recipe request
           </button>
-
+          <button
+              onClick={() => (window.location.href = "/my-recipe-requests")}
+              className="bg-green-50 border border-green-300 text-green-700 px-4 py-2 rounded-full font-medium hover:bg-green-100 transition"
+            >
+              My Recipe Requests
+            </button>
+          </div>
           {/* Center Controls */}
           <div className="flex items-center gap-3">
             

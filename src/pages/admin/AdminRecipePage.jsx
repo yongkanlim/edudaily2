@@ -140,6 +140,14 @@ const deleteRecipe = async (recipeId) => {
                 Delete recipe
             </button>
 
+            {/* Manage Recipe Requests */}
+            <button
+              onClick={() => navigate("/admin/recipe-requests")}
+              className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-medium"
+            >
+              Manage Recipe Requests
+            </button>
+
             {/* Exit Button for Edit/Delete Mode */}
             {mode !== "view" && (
                 <button
