@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "../supabaseClient";
-import Navbar from "../components/Navbar";
+import { supabase } from "../../supabaseClient";
+import Navbar from "../../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { PencilIcon, TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function RecipePage() {
   const [recipes, setRecipes] = useState([]);
@@ -14,6 +15,7 @@ export default function RecipePage() {
   const [cuisineType, setCuisineType] = useState("All");
   const [goal, setGoal] = useState("All");
   const [sortOrder, setSortOrder] = useState("Newest");
+  const [mode, setMode] = useState("view"); // view | edit | delete
 
   useEffect(() => {
     fetchRecipes();
@@ -50,8 +52,7 @@ export default function RecipePage() {
     matchesCuisine &&
     matchesGoal
     );
-  }
-);
+  });
 
 const sortedRecipes = [...filteredRecipes].sort((a, b) => {
   if (sortOrder === "Newest") return (b.recipeid || b.RecipeID) - (a.recipeid || a.RecipeID);
@@ -59,23 +60,101 @@ const sortedRecipes = [...filteredRecipes].sort((a, b) => {
   return 0;
 });
 
+// Delete recipe function
+const deleteRecipe = async (recipeId) => {
+  if (!window.confirm("Are you sure you want to delete this recipe?")) return;
+
+  setLoading(true);
+  try {
+    // Delete recipe ingredients first (foreign key)
+    await supabase.from("recipeingredient").delete().eq("recipeid", recipeId);
+
+    // Delete tutorial video if exists
+    await supabase.from("tutorial").delete().eq("recipeid", recipeId);
+
+    // Delete the recipe itself
+    const { error } = await supabase.from("recipe").delete().eq("recipeid", recipeId);
+
+    if (error) {
+      alert("Failed to delete recipe!");
+      console.error(error);
+    } else {
+      alert("Recipe deleted successfully!");
+      // Remove from local state
+      setRecipes(prev => prev.filter(r => r.recipeid !== recipeId));
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Something went wrong while deleting the recipe.");
+  }
+  setLoading(false);
+};
+
   return (
     <div className="bg-white min-h-screen">
       <Navbar />
+        {/* 🔴 Admin Mode Banner */}
+        {mode !== "view" && (
+        <div
+            className={`px-6 py-3 flex justify-between items-center ${
+            mode === "delete" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
+            }`}
+        >
+            <span className="font-medium capitalize">{mode} mode</span>
+            <button
+            onClick={() => setMode("view")}
+            className="bg-white px-3 py-1 rounded shadow flex items-center gap-1"
+            >
+            <XMarkIcon className="w-4 h-4" /> Exit
+            </button>
+        </div>
+        )}
 
       {/* --- Top Banner Section (new) --- */}
       <div className="bg-white border-b shadow-sm">
         {/* Top Controls Row */}
         <div className="flex flex-wrap items-center justify-between px-6 lg:px-16 py-4 gap-4">
-          {/* Add Recipe Request Button */}
-          <button onClick={() => (window.location.href = "/addreciperequest")} className="bg-orange-50 border border-orange-300 text-orange-700 px-4 py-2 rounded-full font-medium hover:bg-orange-100 transition">
-            + Add recipe request
-          </button>
+          {/* --- Admin Action Buttons (Left Side) --- */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3">
+            {/* Add Recipe */}
+            <button
+                onClick={() => navigate("/addrecipe")}
+                className="bg-orange-50 border border-orange-300 text-orange-700 px-4 py-2 rounded-full font-medium"
+            >
+                + Add recipe
+            </button>
+
+            {/* Edit Mode */}
+            <button
+                onClick={() => setMode("edit")}
+                className="bg-green-100 text-green-700 px-4 py-2 rounded-full font-medium"
+            >
+                Edit recipe
+            </button>
+
+            {/* Delete Mode */}
+            <button
+                onClick={() => setMode("delete")}
+                className="bg-red-100 text-red-600 px-4 py-2 rounded-full font-medium"
+            >
+                Delete recipe
+            </button>
+
+            {/* Exit Button for Edit/Delete Mode */}
+            {mode !== "view" && (
+                <button
+                onClick={() => setMode("view")}
+                className="bg-gray-100 text-gray-800 px-3 py-2 rounded-full font-medium flex items-center gap-1 mt-2 lg:mt-0"
+                >
+                <XMarkIcon className="w-4 h-4" />
+                Exit {mode} mode
+                </button>
+            )}
+            </div>
 
           {/* Center Controls */}
           <div className="flex items-center gap-3">
             
-
             {/* Search Box */}
             <div className="relative">
               <input
@@ -230,10 +309,31 @@ const sortedRecipes = [...filteredRecipes].sort((a, b) => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
               {sortedRecipes.map((recipe) => (
                 <div
-                  key={recipe.recipeid || recipe.RecipeID}
-                  onClick={() => navigate(`/recipe/${recipe.recipeid || recipe.RecipeID}`)}
-                  className="bg-white rounded-xl shadow hover:shadow-lg transition border border-gray-100 cursor-pointer"
-                >
+                    key={recipe.recipeid || recipe.RecipeID}
+                    className="relative bg-white rounded-xl shadow hover:shadow-lg transition border border-gray-100 cursor-pointer"
+                    onClick={() => mode === "view" && navigate(`/recipe/${recipe.recipeid || recipe.RecipeID}`)}
+                    >
+                    {/* Admin Icons */}
+                    {mode !== "view" && (
+                        <div className="absolute top-3 right-3 z-10 flex gap-2">
+                        {mode === "edit" && (
+                            <button
+                            onClick={() => navigate(`/admin/edit-recipe/${recipe.recipeid}`)}
+                            className="bg-white p-2 rounded-full shadow hover:bg-green-100"
+                            >
+                            <PencilIcon className="w-5 h-5 text-green-600" />
+                            </button>
+                        )}
+                        {mode === "delete" && (
+                            <button
+                            onClick={() => deleteRecipe(recipe.recipeid)}
+                            className="bg-white p-2 rounded-full shadow hover:bg-red-100"
+                            >
+                            <TrashIcon className="w-5 h-5 text-red-600" />
+                            </button>
+                        )}
+                        </div>
+                    )}
 
                   <img
                     src={

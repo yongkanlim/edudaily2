@@ -17,6 +17,13 @@ import YourLikes from "./pages/YourLikes";
 import YourRecipes from "./pages/YourRecipes";
 import AddRecipeRequest from "./pages/AddRecipeRequest";
 import EditPost from "./pages/EditPost";
+import AdminRecipePage from "./pages/admin/AdminRecipePage";
+import ResetPassword from "./pages/ResetPassword";
+import AddRecipe from "./pages/admin/AddRecipePage";
+import EditRecipe from "./pages/admin/EditRecipe";
+import AdminIngredientPage from "./pages/admin/AdminIngredientPage";
+import AddIngredient from "./pages/admin/AddIngredient";
+import EditIngredient from "./pages/admin/EditIngredient";
 
 export default function App() {
   return (
@@ -28,6 +35,7 @@ export default function App() {
         <Route path="/ingredients" element={<IngredientsPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/community" element={<Community />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create-question" element={<CreateQuestion />} />
@@ -39,6 +47,12 @@ export default function App() {
         <Route path="/your-recipes" element={<YourRecipes />} />
         <Route path="/addreciperequest" element={<AddRecipeRequest />} />
         <Route path="/edit-post/:postid" element={<EditPost />} />
+        <Route path="/admin/recipepage" element={<AdminRecipePage />} />
+        <Route path="/addrecipe" element={<AddRecipe />} />
+        <Route path="/admin/edit-recipe/:recipeId" element={<EditRecipe />} />
+        <Route path="/admin/ingredientpage" element={<AdminIngredientPage />} />
+        <Route path="/admin/add-ingredient" element={<AddIngredient />} />
+        <Route path="/admin/edit-ingredient/:id" element={<EditIngredient />} />
       </Routes>
     </BrowserRouter>
   );

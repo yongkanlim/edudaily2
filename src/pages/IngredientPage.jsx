@@ -25,14 +25,20 @@ export default function IngredientPage() {
 
   // Filtering logic
   const filteredIngredients = ingredients.filter((ing) => {
-    const matchesType =
-      selectedType === "All" ||
-      ing.category?.toLowerCase() === selectedType.toLowerCase();
-    const matchesSearch = ing.name
-      ?.toLowerCase()
-      .includes(search.toLowerCase());
-    return matchesType && matchesSearch;
-  });
+  const categories = (ing.category || ing.Category || "")
+    .split(",")        // split comma-separated values
+    .map((c) => c.trim().toLowerCase());
+
+  const matchesType =
+    selectedType === "All" || categories.includes(selectedType.toLowerCase());
+
+  const matchesSearch = ing.name
+    ?.toLowerCase()
+    .includes(search.toLowerCase());
+
+  return matchesType && matchesSearch;
+});
+
 
   const ingredientTypes = [
     "Vegetables",
@@ -117,15 +123,16 @@ export default function IngredientPage() {
             {ingredientTypes.map((type) => (
               <li
                 key={type}
-                onClick={() => setSelectedType(type)}
+                onClick={() =>
+                  setSelectedType((prev) => (prev === type ? "All" : type))
+                }
                 className={`cursor-pointer hover:text-green-600 ${
-                  selectedType === type
-                    ? "font-semibold text-black"
-                    : "text-gray-700"
+                  selectedType === type ? "font-semibold text-black" : "text-gray-700"
                 }`}
               >
                 {type}
               </li>
+
             ))}
           </ul>
         </aside>

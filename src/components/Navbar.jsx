@@ -11,6 +11,23 @@ export default function Navbar() {
   const [avatar, setAvatar] = useState(null);
   const [notifications, setNotifications] = useState([]);
   const [showNotif, setShowNotif] = useState(false);
+  const [role, setRole] = useState("user");
+
+  useEffect(() => {
+  const fetchRole = async () => {
+    if (!user?.email) return;
+
+    const { data } = await supabase
+      .from("users")
+      .select("role")
+      .eq("email", user.email)
+      .single();
+
+    if (data?.role) setRole(data.role);
+  };
+
+  fetchRole();
+}, [user]);
 
 // Watch for Supabase user changes (so avatar updates live)
 useEffect(() => {
@@ -148,13 +165,27 @@ if (commentError) console.error("Error fetching comments:", commentError);
   fetchNotifications();
 }, [user]);
 
-  const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Recipes", path: "/recipes" },
-    { name: "Ingredient Info", path: "/ingredients" },
-    { name: "Community", path: "/community" },
-    { name: "About Us", path: "/about" },
-  ];
+const navItems = [
+  {
+    name: "Home",
+    path: "/"
+  },
+  {
+    name: "Recipes",
+    path: "/recipes",
+    adminPath: "/admin/recipepage"
+  },
+  {
+    name: "Ingredients",
+    path: "/ingredients",
+    adminPath: "/admin/ingredientpage"
+  },
+  {
+    name: "Community",
+    path: "/community"
+  },
+  { name: "About Us", path: "/about" },
+];
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -169,7 +200,7 @@ if (commentError) console.error("Error fetching comments:", commentError);
           {navItems.map((item) => (
             <li key={item.name}>
               <Link
-                to={item.path}
+                to={role === "Admin" && item.adminPath ? item.adminPath : item.path}
                 className={`transition-all ${
                   location.pathname === item.path
                     ? "text-orange-600 font-semibold border-b-2 border-orange-600 pb-1"
@@ -339,7 +370,7 @@ if (commentError) console.error("Error fetching comments:", commentError);
       {navItems.map((item) => (
         <li key={item.name}>
           <Link
-            to={item.path}
+            to={role === "Admin" && item.adminPath ? item.adminPath : item.path}
             onClick={() => setOpen(false)}
             className={`transition-all ${
               location.pathname === item.path

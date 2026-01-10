@@ -6,12 +6,13 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleLogin = async (e) => {
   e.preventDefault();
   setError("");
 
-  // 🔐 Login using Supabase Auth
+  //  Login using Supabase Auth
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -24,10 +25,10 @@ export default function Login() {
     console.log("✅ Login successful:", data);
     alert("✅ Login successful!");
 
-// ✅ Save user info in localStorage
+//  Save user info in localStorage
 localStorage.setItem("user", JSON.stringify(data.user));
 
-// ✅ Get the corresponding user from Users table
+//  Get the corresponding user from Users table
 const { data: userRow } = await supabase
   .from("users")
   .select("userid")
@@ -35,9 +36,29 @@ const { data: userRow } = await supabase
   .single();
 
 
-// ✅ Redirect to Community page
+//  Redirect to Community page
 window.location.href = "/community";
 
+  }
+};
+
+const handleForgotPassword = async () => {
+  if (!email) {
+    setError("Please enter your email first.");
+    return;
+  }
+
+  setError("");
+  setMessage("");
+
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + "/reset-password",
+  });
+
+  if (error) {
+    setError("Failed to send reset email.");
+  } else {
+    setMessage("Password reset email sent! Check your inbox.");
   }
 };
 
@@ -49,7 +70,7 @@ window.location.href = "/community";
         {/* Left Side - Login Form */}
         <div className="w-full md:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-24">
           <h2 className="text-3xl font-bold text-gray-800 mb-3">
-            We’ve Missed You!
+            We've Missed You!
           </h2>
           <p className="text-gray-600 mb-8">
             More than <span className="font-semibold">150 questions</span> are
@@ -95,6 +116,21 @@ window.location.href = "/community";
             >
               Login
             </button>
+
+            <div>
+              <button
+                type="button"
+                onClick={handleForgotPassword}
+                className="text-sm text-orange-600 hover:underline"
+              >
+                Forgot password?
+              </button>
+            </div>
+
+            {message && (
+              <p className="text-sm text-green-600 mt-2">{message}</p>
+            )}
+
           </form>
         </div>
 

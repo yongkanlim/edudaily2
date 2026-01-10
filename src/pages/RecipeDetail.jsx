@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import Navbar from "../components/Navbar";
+import RecipeFeedback from "../components/RecipeFeedback";
 
 export default function RecipeDetail() {
   const { id } = useParams();
@@ -220,6 +221,11 @@ export default function RecipeDetail() {
   </section>
 )}
 
+<RecipeFeedback
+  recipeId={recipe.recipeid}
+  userId={recipe.userid}
+/>
     </div>
+
   );
 }
