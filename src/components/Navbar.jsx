@@ -184,7 +184,18 @@ const navItems = [
     name: "Community",
     path: "/community"
   },
-  { name: "About Us", path: "/about" },
+  {
+    name: "Recipe Generator",
+    path: "/recipe-generator"
+  },
+  {
+  name: "Recipe Detector",
+  path: "/image-detector"
+  },
+  {
+  name: "Web Game",
+  path: "/webgame"
+  }
 ];
 
   return (

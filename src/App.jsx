@@ -31,6 +31,9 @@ import MyRecipeRequestDetail from "./pages/MyRecipeRequestDetail";
 import EditRecipeRequest from "./pages/EditRecipeRequest";
 import AiChatbot from "./components/AiChatbot";
 import chatbotIcon from "./assets/chatbot.png";
+import RecipeGenerator from "./pages/AIRecipeGenerator";
+import RecipeImageDetector from "./pages/AIRecipeImageDetector";
+import WebGame from "./pages/WebGame";
 
 export default function App() {
   return (
@@ -65,6 +68,10 @@ export default function App() {
         <Route path="/my-recipe-requests" element={<MyRecipeRequests />} />
         <Route path="/recipe-request/:id" element={<MyRecipeRequestDetail />} />
         <Route path="/edit-recipe-request/:id" element={<EditRecipeRequest />} />
+        <Route path="/recipe-generator" element={<RecipeGenerator />} />
+        <Route path="/image-detector" element={<RecipeImageDetector />} />
+        <Route path="/webgame" element={<WebGame />} />
+
       </Routes>
 
       <AiChatbot apiKey="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" buttonImage={chatbotIcon} position="bottom-right" />

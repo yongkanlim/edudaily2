@@ -124,7 +124,7 @@ export default function AddIngredient() {
               <label className="block mb-2 font-semibold">Unit</label>
               <input
                 type="text"
-                placeholder="e.g., 1kg, pcs"
+                placeholder="e.g., kg, pcs"
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
                 className="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-orange-400 outline-none"

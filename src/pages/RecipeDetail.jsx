@@ -18,72 +18,77 @@ export default function RecipeDetail() {
   }, [id]);
 
   async function fetchRecipeDetail() {
-    try {
-      // Fetch main recipe details
-      const { data: recipeData, error: recipeError } = await supabase
-        .from("recipe")
-        .select("*")
-        .eq("recipeid", id)
-        .single();
+  try {
+    // Fetch main recipe details
+    const { data: recipeData, error: recipeError } = await supabase
+      .from("recipe")
+      .select("*")
+      .eq("recipeid", id)
+      .single();
 
-      if (recipeError) throw recipeError;
-      setRecipe({
-  ...recipeData,
-  instructions: recipeData.instructions?.replace(/\n/g, "<br>"),
-});
+    if (recipeError) throw recipeError;
+    setRecipe({
+      ...recipeData,
+      instructions: recipeData.instructions?.replace(/\n/g, "<br>"),
+    });
 
+    // Fetch recipe ingredients joined with ingredient details
+    const { data: ingredientData, error: ingError } = await supabase
+      .from("recipeingredient")
+      .select("quantityrequired, ingredient:ingredientid(name, averageprice, unit)")
+      .eq("recipeid", id);
 
+    if (ingError) throw ingError;
 
-      // Fetch recipe ingredients joined with ingredient details
-      const { data: ingredientData, error: ingError } = await supabase
-        .from("recipeingredient")
-        .select("quantityrequired, ingredient:ingredientid(name, averageprice, unit)")
-        .eq("recipeid", id);
+    const formatted = ingredientData.map((item) => {
+      const unit = item.ingredient.unit;
+      const quantity = item.quantityrequired;
+      const unitPrice = unit.toLowerCase() === "kg" ? item.ingredient.averageprice : 1.0; // per piece/clove etc
+      const estimatedCost = unit.toLowerCase() === "kg" ? quantity * item.ingredient.averageprice : 0.0;
 
-      if (ingError) throw ingError;
-
-      const formatted = ingredientData.map((item) => ({
+      return {
         name: item.ingredient.name,
-        unitPrice: item.ingredient.averageprice,
-        unit: item.ingredient.unit,
-        quantity: item.quantityrequired,
-        estimatedCost: (item.quantityrequired / 100) * item.ingredient.averageprice,
-      }));
+        unitPrice,
+        unit,
+        quantity,
+        estimatedCost,
+      };
+    });
 
-      setIngredients(formatted);
-      setBaseIngredients(formatted); // keep a copy for recalculation
+    setIngredients(formatted);
+    setBaseIngredients(formatted); // keep a copy for recalculation
 
-      // Fetch related tutorial video
-      const { data: tutorialData, error: tutError } = await supabase
-        .from("tutorial")
-        .select("videourl, title, description")
-        .eq("recipeid", id)
-        .single();
+    // Fetch related tutorial video
+    const { data: tutorialData, error: tutError } = await supabase
+      .from("tutorial")
+      .select("videourl, title, description")
+      .eq("recipeid", id)
+      .single();
 
-      if (!tutError && tutorialData) {
-        setTutorial(tutorialData);
-      }
-
-    } catch (err) {
-      console.error("❌ Error loading recipe detail:", err.message);
-    } finally {
-      setLoading(false);
+    if (!tutError && tutorialData) {
+      setTutorial(tutorialData);
     }
+  } catch (err) {
+    console.error("❌ Error loading recipe detail:", err.message);
+  } finally {
+    setLoading(false);
   }
+}
 
-  // Update ingredients when serving changes
-  function handleServingChange(e) {
-    const newServing = parseFloat(e.target.value);
-    if (!isNaN(newServing) && newServing > 0) {
-      setServing(newServing);
-      const scaled = baseIngredients.map((ing) => ({
-        ...ing,
-        quantity: (ing.quantity * newServing).toFixed(2),
-        estimatedCost: ((ing.quantity * newServing) / 100) * ing.unitPrice,
-      }));
-      setIngredients(scaled);
-    }
+// Update ingredients when serving changes
+function handleServingChange(e) {
+  const newServing = parseFloat(e.target.value);
+  if (!isNaN(newServing) && newServing > 0) {
+    setServing(newServing);
+    const scaled = baseIngredients.map((ing) => {
+      const quantity = ing.quantity * newServing;
+      const estimatedCost = ing.unit.toLowerCase() === "kg" ? quantity * ing.unitPrice : 0.0;
+      return { ...ing, quantity, estimatedCost };
+    });
+    setIngredients(scaled);
   }
+}
+
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
   if (!recipe) return <p className="text-center mt-10 text-gray-500">Recipe not found.</p>;
@@ -170,7 +175,10 @@ export default function RecipeDetail() {
             {ingredients.map((ing, index) => (
               <tr key={index} className="hover:bg-orange-50">
                 <td className="py-3 px-4">{ing.name}</td>
-                <td className="py-3 px-4">{ing.quantity}</td>
+                <td className="pl-5">
+                  {ing.quantity.toFixed(2)} {ing.unit}
+                </td>
+
                 <td className="py-3 px-4">
                   RM {ing.unitPrice?.toFixed(2)} / {ing.unit}
                 </td>

@@ -385,6 +385,9 @@ export default function EditRecipe() {
           {/* Ingredients */}
           <div>
             <h4 className="font-semibold mb-2">Ingredients</h4>
+            <h4 className="mb-2 text-gray-500 text-sm">
+              Upload an image only if the ingredient list is empty.
+            </h4>
             <datalist id="ingredient-list">
               {ingredientOptions.map((ing) => (
                 <option key={ing.ingredientid} value={ing.name} />
@@ -397,7 +400,8 @@ export default function EditRecipe() {
                   <input type="text" list="ingredient-list" placeholder="Ingredient" value={ing.name} onChange={(e) => handleIngredientNameChange(e.target.value, idx)}
                     className="flex-1 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-orange-400 outline-none" />
                   {ing.name && !ingredientExists(ing.name) && (
-                    <span className="text-xs text-orange-600 ml-1">New ingredient (will be added)</span>
+                    <span className="text-xs text-orange-600 ml-1 border border-gray-300 rounded-md p-2 flex items-center justify-center">
+                      New ingredient (will be added)</span>
                   )}
                   <input type="text" placeholder="Quantity" value={ing.quantity} onChange={e=>setIngredients(prev=>prev.map((i,index)=>(index===idx?{...i,quantity:e.target.value}:i)))}
                     className="w-20 border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-orange-400 outline-none"/>

@@ -12,8 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@material-tailwind/react": "^2.1.10",
+    "@openrouter/sdk": "^0.3.14",
     "@supabase/supabase-js": "^2.74.0",
     "@tailwindcss/vite": "^4.1.14",
+    "csv-parser": "^3.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0",

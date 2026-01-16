@@ -1,0 +1,2846 @@
+{
+  "AYAM BERSIH - STANDARD": {
+    "unit": "1kg",
+    "avgPrice": 9.04612505757718
+  },
+  "AYAM BERSIH - SUPER": {
+    "unit": "1kg",
+    "avgPrice": 11.253721292331717
+  },
+  "AYAM HIDUP": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (AUSTRALIA - KOTAK)": {
+    "unit": "1kg",
+    "avgPrice": 33.07247252747245
+  },
+  "DAGING KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (NEW ZEALAND - KOTAK)": {
+    "unit": "1kg",
+    "avgPrice": 34.179375
+  },
+  "DAGING KAMBING BEBIRI IMPORT TANPA TULANG (MUTTON) (TIDAK TERMASUK PAHA - AUSTRALIA)": {
+    "unit": "1kg",
+    "avgPrice": 44.878387096774205
+  },
+  "DAGING KAMBING BEBIRI IMPORT TANPA TULANG (MUTTON) (TIDAK TERMASUK PAHA - NEW ZEALAND)": {
+    "unit": "1kg",
+    "avgPrice": 44.733333333333334
+  },
+  "DAGING KERBAU IMPORT (INDIA) * (TOP SIDE)": {
+    "unit": "1kg",
+    "avgPrice": 24.07054054054047
+  },
+  "BETIK BIASA": {
+    "unit": "1kg",
+    "avgPrice": 6.494855769230778
+  },
+  "PISANG BERANGAN": {
+    "unit": "1kg",
+    "avgPrice": 7.282466666666669
+  },
+  "PISANG EMAS": {
+    "unit": "1kg",
+    "avgPrice": 7.387333333333334
+  },
+  "TEMBIKAI MERAH BERBIJI": {
+    "unit": "1kg",
+    "avgPrice": 5.250649350649354
+  },
+  "TEMBIKAI MERAH TANPA BIJI": {
+    "unit": "1kg",
+    "avgPrice": 3.919098712446356
+  },
+  "DRAGON FRUIT MERAH": {
+    "unit": "1kg",
+    "avgPrice": 11.1456603773585
+  },
+  "TEMBIKAI SUSU": {
+    "unit": "1kg",
+    "avgPrice": 6.176724137931033
+  },
+  "NENAS BIASA (JOSAPINE/MORRIS/SARAWAK)": {
+    "unit": "1 biji",
+    "avgPrice": 4.620454545454545
+  },
+  "ANGGUR HIJAU BERBIJI": {
+    "unit": "1kg",
+    "avgPrice": 18.066666666666666
+  },
+  "ANGGUR MERAH BERBIJI": {
+    "unit": "1kg",
+    "avgPrice": 11.44309027777777
+  },
+  "LAI KUNING (SAIZ M)": {
+    "unit": "1 biji",
+    "avgPrice": 2.032758620689655
+  },
+  "JAMBU BATU BERBIJI": {
+    "unit": "1kg",
+    "avgPrice": 7.5628859060402736
+  },
+  "JAMBU BATU TANPA BIJI": {
+    "unit": "1kg",
+    "avgPrice": 10.765438596491226
+  },
+  "IKAN BAWAL HITAM (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 27.070508474576254
+  },
+  "IKAN CENCARU (ANTARA 4 HINGGA 6 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 10.833643708065239
+  },
+  "IKAN GELAMA (ANTARA 5 HINGGA 10 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN JENAHAK (b\t% 1 KILOGRAM SEEKOR)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KEPALA IKAN JENAHAK": {
+    "unit": "1kg",
+    "avgPrice": 25.459483568075026
+  },
+  "IKAN KEMBUNG KECIL/PELALING (ANTARA 10 HINGGA 18 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 15.051113737851523
+  },
+  "IKAN MERAH (b\t% 1 KILOGRAM SEEKOR)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KEPALA IKAN MERAH": {
+    "unit": "1kg",
+    "avgPrice": 28.623626943005103
+  },
+  "IKAN KERAPU (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN PARANG (ANTARA 1 HINGGA 3 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN PARI (KEPINGAN)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN SELAR KUNING (b\t% 11 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 13.2322456669182
+  },
+  "IKAN SELAR PELATA (≤ 7 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 18.502189496096637
+  },
+  "IKAN SELAYANG/SARDIN  (≥ 13 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN SENANGIN (ANTARA 2 HINGGA 8 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN TAMBAN BELURU (ANTARA 10 HINGGA 19 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN TENGGIRI PAPAN (ANTARA 1 HINGGA 2 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN TENGGIRI BATANG (ANTARA 1 HINGGA 2 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN TONGKOL/AYA/KAYU HITAM (ANTARA 1 HINGGA 2 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN HARUAN (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN KELI (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 10.278804013594378
+  },
+  "IKAN TILAPIA HITAM (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "CILI HIJAU": {
+    "unit": "1kg",
+    "avgPrice": 13.788202838828429
+  },
+  "CILI MERAH - KULAI": {
+    "unit": "1kg",
+    "avgPrice": 20.196147897535173
+  },
+  "CILI MERAH - MINYAK": {
+    "unit": "1kg",
+    "avgPrice": 19.62531643757196
+  },
+  "HALIA BASAH (TUA)": {
+    "unit": "1kg",
+    "avgPrice": 9.72225678586845
+  },
+  "KACANG BENDI": {
+    "unit": "1kg",
+    "avgPrice": 10.381983579972006
+  },
+  "KACANG BUNCIS": {
+    "unit": "1kg",
+    "avgPrice": 14.83953573742208
+  },
+  "KACANG PANJANG": {
+    "unit": "1kg",
+    "avgPrice": 10.716237416107825
+  },
+  "KELAPA BIJI": {
+    "unit": "1 biji",
+    "avgPrice": 3.406868327402136
+  },
+  "KELAPA PARUT": {
+    "unit": "1kg",
+    "avgPrice": 12.170521327014216
+  },
+  "SANTAN KELAPA SEGAR (BIASA)": {
+    "unit": "1kg",
+    "avgPrice": 11.055847176079734
+  },
+  "KUBIS BULAT IMPORT (CHINA)": {
+    "unit": "1kg",
+    "avgPrice": 3.4601415701418
+  },
+  "KUBIS BULAT (TEMPATAN)": {
+    "unit": "1kg",
+    "avgPrice": 6.408433208489648
+  },
+  "KUNYIT HIDUP": {
+    "unit": "1kg",
+    "avgPrice": 9.95933664040496
+  },
+  "LOBAK MERAH": {
+    "unit": "1kg",
+    "avgPrice": 4.403569412594781
+  },
+  "TERUNG PANJANG": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "TIMUN": {
+    "unit": "1kg",
+    "avgPrice": 3.899847496473965
+  },
+  "TOMATO": {
+    "unit": "1kg",
+    "avgPrice": 6.066828091493908
+  },
+  "TELUR AYAM GRED A (BERAT 65.0 GM HINGGA 69.9 GM SEBIJI)": {
+    "unit": "10 biji",
+    "avgPrice": 5
+  },
+  "TELUR AYAM GRED B (BERAT 60.0 GM HINGGA 64.9 GM)": {
+    "unit": "10 biji",
+    "avgPrice": 4.8
+  },
+  "TELUR AYAM GRED C (BERAT 55.0 GM HINGGA 59.9 GM SEBIJI)": {
+    "unit": "10 biji",
+    "avgPrice": 4.7
+  },
+  "TELUR PUYUH": {
+    "unit": "15 Biji",
+    "avgPrice": 0
+  },
+  "TELUR ITIK": {
+    "unit": "10 biji",
+    "avgPrice": 0
+  },
+  "BAWANG BESAR KUNING/HOLLAND": {
+    "unit": "1kg",
+    "avgPrice": 3.693341344090696
+  },
+  "BAWANG KECIL MERAH ROSE IMPORT (INDIA)": {
+    "unit": "1kg",
+    "avgPrice": 11.452956821026374
+  },
+  "BAWANG KECIL MERAH IMPORT (THAILAND)": {
+    "unit": "1kg",
+    "avgPrice": 13.358072935288037
+  },
+  "IKAN BILIS GRED B (KOPEK)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KACANG HIJAU (IMPORT)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "SERBUK KUNYIT (TIDAK BERBUNGKUS)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "SERBUK CILI  (TIDAK BERBUNGKUS)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "UBI KENTANG RUSSET": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KORDIAL SUNQUICK (OREN)": {
+    "unit": "840 ml",
+    "avgPrice": 0
+  },
+  "TEH BOH (UNCANG)": {
+    "unit": "100 beg",
+    "avgPrice": 14.207293762575414
+  },
+  "SARDIN CAP AYAM (SOS TOMATO)": {
+    "unit": "425 g",
+    "avgPrice": 10.384269592476402
+  },
+  "SARDIN CAP KING CUP (SOS TOMATO)": {
+    "unit": "425 g",
+    "avgPrice": 9.314427645788314
+  },
+  "MACKAREL CAP AYAM (SOS TOMATO)": {
+    "unit": "155 g",
+    "avgPrice": 0
+  },
+  "MACKAREL CAP KING CUP (SOS TOMATO)": {
+    "unit": "155 g",
+    "avgPrice": 0
+  },
+  "TUNA CAP TC BOY (SANDWICH DELITE)": {
+    "unit": "150 g",
+    "avgPrice": 0
+  },
+  "JEM STRAWBERI LADY'S CHOICE": {
+    "unit": "400 g",
+    "avgPrice": 9.351306532663315
+  },
+  "SERI KAYA YEO'S": {
+    "unit": "480 g",
+    "avgPrice": 0
+  },
+  "MAINLAND CHESDALE CHEDDAR CHEESE SPREAD 12 CHEDDAR": {
+    "unit": "250 g",
+    "avgPrice": 12.481571428571396
+  },
+  "KRAFT HI - CALCIUM SINGLES PROCESSED CHEESE 12 SLICES": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "MARJERIN DAISY": {
+    "unit": "240 g",
+    "avgPrice": 0
+  },
+  "MARJERIN PLANTA": {
+    "unit": "240 g",
+    "avgPrice": 0
+  },
+  "KICAP TAMIN (DARK SOY SAUCE)": {
+    "unit": "350ml",
+    "avgPrice": 0
+  },
+  "KICAP LEMAK MANIS CAP KIPAS UDANG": {
+    "unit": "345ml",
+    "avgPrice": 6.822390463917538
+  },
+  "KICAP LEMAK MANIS CAP JALEN": {
+    "unit": "650 ml",
+    "avgPrice": 0
+  },
+  "SOS TOMATO MAGGI": {
+    "unit": "325 g",
+    "avgPrice": 4.229468438538181
+  },
+  "SOS CILI LIFE": {
+    "unit": "340 g",
+    "avgPrice": 4.614414570685156
+  },
+  "DRINHO SOYA (KOTAK)": {
+    "unit": "250 ml",
+    "avgPrice": 1.2162962962962962
+  },
+  "SUSU SEGAR DUTCH LADY": {
+    "unit": "1 liter",
+    "avgPrice": 8.708445692883865
+  },
+  "SUSU MARIGOLD HL": {
+    "unit": "1 liter",
+    "avgPrice": 0
+  },
+  "YEO'S LAICI (KOTAK)": {
+    "unit": "250 ml",
+    "avgPrice": 1.1980000000000002
+  },
+  "COCA COLA (BOTOL)": {
+    "unit": "1.5 liter",
+    "avgPrice": 3.887932960893864
+  },
+  "F&N OREN (TIN)": {
+    "unit": "325 ml",
+    "avgPrice": 1.7394529540481447
+  },
+  "F&N OREN (BOTOL)": {
+    "unit": "1.5 liter",
+    "avgPrice": 3.492738515901059
+  },
+  "MIRINDA OREN (BOTOL)": {
+    "unit": "1.5 liter",
+    "avgPrice": 3.078339416058404
+  },
+  "JUS OREN PEEL FRESH (MARIGOLD)": {
+    "unit": "1 liter",
+    "avgPrice": 6.796979332273457
+  },
+  "JUS OREN SUNKIST": {
+    "unit": "1 liter",
+    "avgPrice": 0
+  },
+  "RED BULL (BOTOL)": {
+    "unit": "150 ml",
+    "avgPrice": 2.473519813519809
+  },
+  "LIVITA WITH HONEY (BOTOL)": {
+    "unit": "150 ml",
+    "avgPrice": 2.1939086294416232
+  },
+  "MINYAK JAGUNG CAP MAZOLA": {
+    "unit": "2 kg",
+    "avgPrice": 29.319999999999997
+  },
+  "MINYAK MASAK SEBATIAN CAP HELANG": {
+    "unit": "2 kg",
+    "avgPrice": 16.362415458937203
+  },
+  "MINYAK MASAK SEBATIAN CAP NEPTUNE": {
+    "unit": "2 kg",
+    "avgPrice": 0
+  },
+  "MINYAK MASAK SEBATIAN CAP PISAU": {
+    "unit": "2 kg",
+    "avgPrice": 16.152915254237236
+  },
+  "MINYAK MASAK TULEN CAP BURUH": {
+    "unit": "2 kg",
+    "avgPrice": 13.165395537525214
+  },
+  "MINYAK MASAK TULEN CAP SERI MURNI": {
+    "unit": "2 kg",
+    "avgPrice": 13.221629485935878
+  },
+  "MINYAK MASAK TULEN CAP VESAWIT": {
+    "unit": "2 kg",
+    "avgPrice": 13.259797191887747
+  },
+  "MINYAK SAPI CAP QBB": {
+    "unit": "400 g",
+    "avgPrice": 34.880877192982375
+  },
+  "ROTI SANDWICH GARDENIA ORIGINAL CLASSIC": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "UBAT GIGI COLGATE (PUDINA SEGAR)": {
+    "unit": "250 g",
+    "avgPrice": 14.013855218855124
+  },
+  "UBAT GIGI DARLIE DOUBLE ACTION (PUDINA ASLI)": {
+    "unit": "250 g",
+    "avgPrice": 14.324511999999979
+  },
+  "UBAT GIGI FRESH & WHITE (PUDINA SEGAR)": {
+    "unit": "160 g",
+    "avgPrice": 6.24039080459771
+  },
+  "LACTOGEN 1 RUMUSAN BAYI (KOTAK)": {
+    "unit": "650g",
+    "avgPrice": 28.837119067443787
+  },
+  "LACTOGEN 2 RUMUSAN SUSULAN (KOTAK)": {
+    "unit": "650g",
+    "avgPrice": 28.790343053173242
+  },
+  "ENFAGROW A+ MIND PRO LANGKAH 3 VANILLA (KOTAK)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "SUSU SEJAT PENUH KRIM CAP IDEAL": {
+    "unit": "390g",
+    "avgPrice": 0
+  },
+  "SUSU TEPUNG ISIAN KURANG LEMAK 'OMEGA PLUS'": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "SUSU TEPUNG SEGERA FERNLEAF (INSTANT)": {
+    "unit": "550 g",
+    "avgPrice": 0
+  },
+  "SUSU ANLENE ACTIFIT 3X PERISA ASLI": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "SUSU ANLENE GOLD 5X": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "ANMUM MATERNA (BIASA/COKLAT)": {
+    "unit": "650g",
+    "avgPrice": 0
+  },
+  "KULIT KAYU MANIS": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "SUSU TEPUNG SEGERA EVERYDAY": {
+    "unit": "900 g",
+    "avgPrice": 0
+  },
+  "REMPAH KURMA (TIDAK BERBUNGKUS)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "REMPAH SUP (TIDAK BERBUNGKUS)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "SERBUK KARI IKAN BABAS": {
+    "unit": "250 g",
+    "avgPrice": 6.29227122381473
+  },
+  "SUP BUNJUT ADABI": {
+    "unit": "8 g",
+    "avgPrice": 0
+  },
+  "SUP PUNJUT MAK SITI": {
+    "unit": "10 g",
+    "avgPrice": 0
+  },
+  "SERBUK CILI BABAS": {
+    "unit": "250 g",
+    "avgPrice": 7.710303210463707
+  },
+  "SERBUK KUNYIT CAMPURAN (SEBATIAN) ADABI": {
+    "unit": "250 g",
+    "avgPrice": 7.282304147465408
+  },
+  "SERBUK KUNYIT BABAS": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "KACANG TANAH (IMPORT)": {
+    "unit": "1kg",
+    "avgPrice": 9.422688842688736
+  },
+  "KRIMER MANIS CAP JUNJUNG": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "CILI API/PADI HIJAU": {
+    "unit": "1kg",
+    "avgPrice": 31.404909090909012
+  },
+  "ANMUM LACTA (BIASA)": {
+    "unit": "650g",
+    "avgPrice": 0
+  },
+  "SOTONG (≥ 6 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 36.813667321543754
+  },
+  "KETAM RENJONG/BUNGA (ANTARA 5 HINGGA 8 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 36.8506800815073
+  },
+  "UDANG PUTIH KECIL (b\t% 61 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 19.944899328859037
+  },
+  "UDANG HARIMAU (ANTARA 20 HINGGA 30 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 45.70641304347818
+  },
+  "UBI KENTANG HOLLAND": {
+    "unit": "1kg",
+    "avgPrice": 4.096638743455488
+  },
+  "JINTAN MANIS (KASAR)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BUNGA CENGKIH": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BUNGA LAWANG": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BUAH PELAGA": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BUAH KERAS": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BUAH PALA": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BIJI SAWI": {
+    "unit": "100 g",
+    "avgPrice": 1.4855153203342597
+  },
+  "BIJI KETUMBAR": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "LADA HITAM": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "LADA PUTIH": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "KRIMER MANIS BERVITAMIN CAP F&N": {
+    "unit": "500 g",
+    "avgPrice": 4.283357371794849
+  },
+  "KRIMER MANIS CAP GOLD COIN": {
+    "unit": "500 g",
+    "avgPrice": 3.4524447334200303
+  },
+  "HALBA": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "BERAS SUPER CAP RAMBUTAN 5% (IMPORT)": {
+    "unit": "10 kg",
+    "avgPrice": 36.59593434343425
+  },
+  "KORDIAL F&N (SIRAP ROS)": {
+    "unit": "2 liter",
+    "avgPrice": 12.124519774011269
+  },
+  "TEPUNG GANDUM NGP (BERBUNGKUS, CAP SAUH)": {
+    "unit": "1kg",
+    "avgPrice": 3.3045683208701444
+  },
+  "MINYAK MASAK PAKET (PELBAGAI JENAMA)": {
+    "unit": "1kg",
+    "avgPrice": 2.5006756756756756
+  },
+  "SUSU TEPUNG PENUH KRIM DUTCHLADY": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "NESCAFE CLASSIC (PAKET)": {
+    "unit": "200 g",
+    "avgPrice": 23.835782493368946
+  },
+  "SOS CILI KIMBALL": {
+    "unit": "340 g",
+    "avgPrice": 0
+  },
+  "BERAS CAP JATI (SST5%)": {
+    "unit": "10 kg",
+    "avgPrice": 33.8
+  },
+  "FISHERMAN'S FRIEND ORIGINAL": {
+    "unit": "25 g",
+    "avgPrice": 0
+  },
+  "MINYAK ANGIN CAP KAPAK": {
+    "unit": "3 ml",
+    "avgPrice": 0
+  },
+  "VICKS VAPORUB": {
+    "unit": "10 g",
+    "avgPrice": 0
+  },
+  "LISTERINE COOL MINT": {
+    "unit": "250 ml",
+    "avgPrice": 0
+  },
+  "MAGGI MEE CURRY": {
+    "unit": "79 g",
+    "avgPrice": 0
+  },
+  "KINDER BUENO - MILK & HAZELNUT": {
+    "unit": "43 g",
+    "avgPrice": 0
+  },
+  "SOS CILI MAGGI": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "SERBUK PENAIK ROYAL (TIN)": {
+    "unit": "113g",
+    "avgPrice": 6.34046228710463
+  },
+  "TEH BOH (SERBUK)": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "MINYAK JAGUNG CAP DAISY": {
+    "unit": "2 kg",
+    "avgPrice": 29.22214843749989
+  },
+  "MINYAK JAGUNG CAP VECORN": {
+    "unit": "2 kg",
+    "avgPrice": 30.024894736842096
+  },
+  "SUSU ANLENE ACTIFIT 3X COKLAT": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "TELUR AYAM GRED A": {
+    "unit": "30 biji",
+    "avgPrice": 14.229501246882828
+  },
+  "TELUR AYAM GRED B": {
+    "unit": "30 biji",
+    "avgPrice": 13.720574807480837
+  },
+  "TELUR AYAM GRED C": {
+    "unit": "30 biji",
+    "avgPrice": 13.199545454545396
+  },
+  "SOS TIRAM KIMBALL": {
+    "unit": "510 g",
+    "avgPrice": 0
+  },
+  "KICAP LEMAK MASIN CAP KIPAS UDANG": {
+    "unit": "345ml",
+    "avgPrice": 0
+  },
+  "SOS TIRAM NONA": {
+    "unit": "510 g",
+    "avgPrice": 0
+  },
+  "SOS TIRAM ADABI": {
+    "unit": "510 g",
+    "avgPrice": 0
+  },
+  "SERBUK CILI KIJANG": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "AYAM BELANDA IMPORT": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "LADA BENGGALA HIJAU (CAPSICUM)": {
+    "unit": "1kg",
+    "avgPrice": 14.809503407984302
+  },
+  "LADA BENGGALA MERAH (CAPSICUM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "LADA BENGGALA KUNING (CAPSICUM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "UBI KENTANG IMPORT (CHINA)": {
+    "unit": "1kg",
+    "avgPrice": 3.1212861861280214
+  },
+  "LIMAU NIPIS": {
+    "unit": "1kg",
+    "avgPrice": 7.314208873581781
+  },
+  "KICAP MANIS ADABI": {
+    "unit": "340ml",
+    "avgPrice": 5.197936046511627
+  },
+  "KICAP MASIN ADABI": {
+    "unit": "340ml",
+    "avgPrice": 0
+  },
+  "SOS CILI THAI LIFE": {
+    "unit": "360g",
+    "avgPrice": 0
+  },
+  "SOS TIRAM MAGGI": {
+    "unit": "340 g",
+    "avgPrice": 5.862584493041714
+  },
+  "SOS TOMATO LIFE": {
+    "unit": "330 g",
+    "avgPrice": 0
+  },
+  "SARDIN CAP ADABI (SOS TOMATO DENGAN CILI)": {
+    "unit": "425 g",
+    "avgPrice": 9.575221339387033
+  },
+  "MENTEGA KACANG HALUS LADY'S CHOICE": {
+    "unit": "500 g",
+    "avgPrice": 17.509803220035693
+  },
+  "NESTLE CERELAC BERAS - TIN": {
+    "unit": "500 g",
+    "avgPrice": 16.987623239436562
+  },
+  "SANTAN KELAPA JENAMA AYAM BRAND": {
+    "unit": "1 liter",
+    "avgPrice": 16.407441549766318
+  },
+  "PERENCAH TOM YAM ADABI": {
+    "unit": "40 g",
+    "avgPrice": 2.3823791821561335
+  },
+  "NASI PUTIH KOSONG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI AYAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI LEMAK (BERBUNGKUS)": {
+    "unit": "sebungkus",
+    "avgPrice": 0
+  },
+  "NASI LEMAK (TIDAK BERBUNGKUS)": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI + SAYUR + IKAN": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI + SAYUR + AYAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI + SAYUR + DAGING": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI + SAYUR + SOTONG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI + SAYUR + UDANG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG KAMPUNG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG PAPRIK": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG CINA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG PATAYA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG CILI PADI": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG DAGING MERAH": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG USA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG AYAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "BIHUN GORENG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "BIHUN HAILAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "BIHUN TOMYAM": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "BIHUN BANDUNG": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "BIHUN LADNA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "BIHUN KUNGFU": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "AYAM GORENG": {
+    "unit": "seketul",
+    "avgPrice": 0
+  },
+  "AYAM MASAK MERAH": {
+    "unit": "seketul",
+    "avgPrice": 0
+  },
+  "AYAM MASAK KICAP": {
+    "unit": "seketul",
+    "avgPrice": 0
+  },
+  "AYAM MASAK HALIA": {
+    "unit": "seketul",
+    "avgPrice": 0
+  },
+  "DAGING MASAK MERAH": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "DAGING MASAK KICAP": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "DAGING MASAK HALIA": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "DAGING MASAK PAPRIK": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SOTONG GORENG": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SOTONG MASAK MERAH": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SOTONG MASAK KICAP": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SOTONG MASAK HALIA": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "UDANG GORENG": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "UDANG MASAK MERAH": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "UDANG MASAK KICAP": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "UDANG MASAK HALIA": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SAYUR CAMPUR": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SAYUR KAILAN IKAN MASIN": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SAYUR KANGKUNG GORENG BELACAN": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "TELUR MATA KERBAU": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "TELUR DADAR": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "TELUR BISTIK": {
+    "unit": "1 set",
+    "avgPrice": 0
+  },
+  "TELUR SETENGAH MASAK": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "TELUR REBUS": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "TELUR MASIN": {
+    "unit": "4 Biji",
+    "avgPrice": 0
+  },
+  "SUP AYAM": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "SUP DAGING": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "SUP EKOR": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "SUP CAMPUR": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "TOM YAM CAMPUR": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "TOM YAM AYAM": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "TOM YAM DAGING": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "TOM YAM UDANG": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "TOM YAM SOTONG": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "MAGGI GORENG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MAGGI SUP": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "ROTI TELUR": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "KUIH LAPIS": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "KUIH SERI MUKA": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "PAU KACANG MERAH": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "PAU AYAM": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "PAU KAYA": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "AYAM SOS LEMON": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SOTONG GORENG ASAM": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "UDANG BUTTER": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SUP IKAN": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "SUP SAYUR MASIN": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "PAU DAGING": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "NASI BRIYANI AYAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI BRIYANI KAMBING": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI BRIYANI BUKHARA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "AYAM MASAK KARI": {
+    "unit": "seketul",
+    "avgPrice": 0
+  },
+  "SUP TULANG": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "SUP KAMBING": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "ROTI PISANG": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "ROTI BAWANG": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "ROTI BOOM": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "RAWA TOSAI": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "ROTI TISU": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "CAPATI": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "Ayam Tandoori": {
+    "unit": "seketul",
+    "avgPrice": 0
+  },
+  "ROTI BAKAR": {
+    "unit": "1 set",
+    "avgPrice": 0
+  },
+  "MURTABAK AYAM": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "MURTABAK DAGING": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "MURTABAK KAMBING": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "AIR SUAM": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "Kopi Panas": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "TEH 'O' LIMAU PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "Teh Panas": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "TEH HALIA PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "NESCAFE PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "NESLO PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "HORLICKS PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "MILO PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "BARLI PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "MILO 'O' PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "AIR KOSONG": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "JUS EPAL": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "JUS MANGGA": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "JUS TEMBIKAI": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "JUS BELIMBING": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "JUS LAICI": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "100 PLUS (ORIGINAL)": {
+    "unit": "1.5 liter",
+    "avgPrice": 3.669855072463772
+  },
+  "ROTI SARDIN": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "KOPI 'O' PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "TEH 'O' PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "AYAM TUA HIDUP": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING PAHA KAMBING BEBIRI IMPORT BERTULANG  (MUTTON) (AUSTRALIA)": {
+    "unit": "1kg",
+    "avgPrice": 36.964193548387115
+  },
+  "DAGING PAHA KAMBING BEBIRI IMPORT BERTULANG (MUTTON) (NEW ZEALAND)": {
+    "unit": "1kg",
+    "avgPrice": 37.54578947368421
+  },
+  "DAGING KAMBING TEMPATAN BERTULANG": {
+    "unit": "1kg",
+    "avgPrice": 55.714285714285715
+  },
+  "DAGING LEMBU IMPORT (TOPSIDE)": {
+    "unit": "1kg",
+    "avgPrice": 50.22125
+  },
+  "DAGING LEMBU IMPORT (BLADE)": {
+    "unit": "1kg",
+    "avgPrice": 48.01736842105263
+  },
+  "DAGING LEMBU IMPORT (CHUCKTENDER)": {
+    "unit": "1kg",
+    "avgPrice": 51.82
+  },
+  "DAGING LEMBU IMPORT (KNUCKLE)": {
+    "unit": "1kg",
+    "avgPrice": 46.37714285714285
+  },
+  "DAGING KERBAU TEMPATAN": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING KERBAU IMPORT (INDIA) * (SILVERSIDE)": {
+    "unit": "1kg",
+    "avgPrice": 23.04503311258278
+  },
+  "DAGING KERBAU IMPORT (INDIA) * (RUMP)": {
+    "unit": "1kg",
+    "avgPrice": 22.839154929577475
+  },
+  "DAGING KERBAU IMPORT (INDIA) * (BLADE)": {
+    "unit": "1kg",
+    "avgPrice": 23.783282051282036
+  },
+  "DAGING KERBAU IMPORT (INDIA) * (CHUCK)": {
+    "unit": "1kg",
+    "avgPrice": 23.717759999999988
+  },
+  "DAGING BABI (PERUT / BELLY)": {
+    "unit": "1kg",
+    "avgPrice": 43.60485148514852
+  },
+  "DAGING BABI (DAGING & LEMAK / LEAN & FAT)": {
+    "unit": "1kg",
+    "avgPrice": 33.541562500000005
+  },
+  "DAGING BABI (ISI DAGING / PURE LEAN)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING BABI (RUSUK DENGAN DAGING/ RIBS WITH MEAT)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "BABI HIDUP (±100KG / SEEKOR)": {
+    "unit": "±100kg/seekor",
+    "avgPrice": 0
+  },
+  "UDANG PUTIH BESAR/BANANA PRAWN (BERAT ANTARA 41 EKOR HINGGA 60 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 39.90589743589744
+  },
+  "KUBIS BULAT IMPORT (INDONESIA)": {
+    "unit": "1kg",
+    "avgPrice": 4.0875
+  },
+  "BAWANG PERAI (LEEK) TEMPATAN": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "BAWANG PERAI (LEEK) IMPORT": {
+    "unit": "1kg",
+    "avgPrice": 12.826666666666668
+  },
+  "HORLICKS (PAKET)": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "KUBIS PANJANG CHINA - BESAR": {
+    "unit": "1kg",
+    "avgPrice": 5.4325
+  },
+  "KACANG DAL BIASA (INDIA)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KACANG DAL MALAVI (INDIA)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KACANG DAL (AUSTRALIA)": {
+    "unit": "1kg",
+    "avgPrice": 5.396857923497248
+  },
+  "DAGING LEMBU TEMPATAN (BAHAGIAN 1 DAGING PAHA (KECUALI BATANG PINANG - TENDERLOIN)": {
+    "unit": "1kg",
+    "avgPrice": 35.3649
+  },
+  "DAGING LEMBU TEMPATAN (BAHAGIAN 2 DAGING PEJAL (KECUALI BATANG PINANG - TENDERLOIN)": {
+    "unit": "1kg",
+    "avgPrice": 34.97557894736842
+  },
+  "IKAN KERISI (ANTARA 5 HINGGA 10 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 16.294057244502103
+  },
+  "IKAN SIAKAP (ANTARA 2 HINGGA 4 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 20.547814113597145
+  },
+  "IKAN TENGGIRI BATANG (KEPINGAN)": {
+    "unit": "1kg",
+    "avgPrice": 48.94064599483203
+  },
+  "BAWANG BESAR IMPORT (INDIA)": {
+    "unit": "1kg",
+    "avgPrice": 3.6200606660890653
+  },
+  "BAWANG BESAR IMPORT (CHINA)": {
+    "unit": "1kg",
+    "avgPrice": 2.7455523255813237
+  },
+  "BAWANG KECIL MERAH BIASA IMPORT (INDIA)": {
+    "unit": "1kg",
+    "avgPrice": 4.122370682665984
+  },
+  "BAWANG KECIL MERAH IMPORT (CHINA)": {
+    "unit": "1kg",
+    "avgPrice": 5.883888888888892
+  },
+  "BAWANG KECIL MERAH IMPORT (MYANMAR)": {
+    "unit": "1kg",
+    "avgPrice": 5.467741935483871
+  },
+  "BERAS CAP FAIZA EMAS (SST5%)": {
+    "unit": "10 kg",
+    "avgPrice": 31.9
+  },
+  "KUBIS BULAT IMPORT (BEIJING)": {
+    "unit": "1kg",
+    "avgPrice": 5.4313417384173235
+  },
+  "KRIMER SEJAT CARNATION": {
+    "unit": "390g",
+    "avgPrice": 0
+  },
+  "PANADOL FOR CHILDREN SUSPENSION 1-6": {
+    "unit": "60ml",
+    "avgPrice": 0
+  },
+  "NESCAFE ''O'' PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "BERAS BASMATHI - FAIZA (KASHMIR)": {
+    "unit": "5 kg",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL PUTIH (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 54.56988816402643
+  },
+  "IKAN KEMBUNG (ANTARA 8 HINGGA 12 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 17.077906546990594
+  },
+  "IKAN MABUNG (ANTARA 6 HINGGA 10 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 19.41744642857149
+  },
+  "BROKOLI": {
+    "unit": "1kg",
+    "avgPrice": 13.899058524172933
+  },
+  "KUBIS BUNGA (CAULIFLOWER)": {
+    "unit": "1kg",
+    "avgPrice": 9.885223581120181
+  },
+  "KUBIS PANJANG (TEMPATAN)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "MEE KUNING BASAH (PELBAGAI JENAMA)": {
+    "unit": "+-450g",
+    "avgPrice": 1.8032106499608478
+  },
+  "KUETIAU BASAH (PELBAGAI JENAMA)": {
+    "unit": "+-450g",
+    "avgPrice": 0
+  },
+  "EPAL HIJAU GRANNY SMITH (SAIZ M)": {
+    "unit": "1 biji",
+    "avgPrice": 0
+  },
+  "EPAL MERAH RED DELICIOUS (SAIZ M)": {
+    "unit": "1 biji",
+    "avgPrice": 0
+  },
+  "OREN VALENCIA (SAIZ M)": {
+    "unit": "1 biji",
+    "avgPrice": 0
+  },
+  "ASAM JAWA (BERBIJI) PELBAGAI JENAMA": {
+    "unit": "200 g",
+    "avgPrice": 1.469981651376145
+  },
+  "BERAS PULUT THAILAND (SUSU) PELBAGAI JENAMA": {
+    "unit": "1kg",
+    "avgPrice": 8.628
+  },
+  "BERAS PULUT THAILAND (BIASA) PELBAGAI JENAMA": {
+    "unit": "1kg",
+    "avgPrice": 6.888
+  },
+  "BIHUN KERING TEMPATAN (CAP JASMINE)": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "ROTI GARDENIA BREAKTHRU - ROTI GANDUM PENUH": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "TEPUNG JAGUNG (PELBAGAI JENAMA)": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "DUTCH LADY UHT COKLAT (KOTAK)": {
+    "unit": "200 ml",
+    "avgPrice": 0
+  },
+  "DUTCH LADY UHT FULL CREAM (KOTAK)": {
+    "unit": "200 ml",
+    "avgPrice": 0
+  },
+  "COCA COLA (TIN)": {
+    "unit": "320 ml",
+    "avgPrice": 1.9604363001745224
+  },
+  "MAMEX LANGKAH 1 - RUMUSAN BAYI (KOTAK)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "SUSTAGEN KID 3+ (VANILLA) - KOTAK": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "SUSTAGEN JUNIOR 1+ (VANILLA ) - KOTAK": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "HEINZ FARLEY RUSKS (ORIGINAL)": {
+    "unit": "120 g",
+    "avgPrice": 8.883304347826094
+  },
+  "HEINZ APPLE PUREE": {
+    "unit": "110 g",
+    "avgPrice": 7.612480620155037
+  },
+  "DRYPERS WEE WEE DRY": {
+    "unit": "M74",
+    "avgPrice": 0
+  },
+  "BERUS GIGI COLGATE (ZIG ZAG - SOFT)": {
+    "unit": "1 batang",
+    "avgPrice": 4.40047422680413
+  },
+  "BERUS GIGI ORAL B (COMPLETE EASY CLEAN - SOFT)": {
+    "unit": "1 batang",
+    "avgPrice": 4.977853403141359
+  },
+  "SABUN PENCUCI AXION PASTE (LEMON)": {
+    "unit": "350 g",
+    "avgPrice": 0
+  },
+  "SABUN PENCUCI KUAT HARIMAU (LEMON)": {
+    "unit": "400 g",
+    "avgPrice": 2.7275402298850584
+  },
+  "SABUN PENCUCI GLO (LEMON)": {
+    "unit": "900ml",
+    "avgPrice": 0
+  },
+  "SABUN PENCUCI SUNLIGHT (LEMON)": {
+    "unit": "900ml",
+    "avgPrice": 0
+  },
+  "KIUB SUP TOMYAM (MAGGI)": {
+    "unit": "2 X 10G",
+    "avgPrice": 0
+  },
+  "SERBUK NASI GORENG CINA ADABI": {
+    "unit": "17 g",
+    "avgPrice": 1.4202439024390197
+  },
+  "PERENCAH NASI GORENG IKAN BILIS SERI AJI": {
+    "unit": "26G",
+    "avgPrice": 1.4201383399209493
+  },
+  "PEPSI COLA (TIN)": {
+    "unit": "320 ml",
+    "avgPrice": 1.8178269230769222
+  },
+  "PAHA AYAM (CHICKEN DRUMSTICK)": {
+    "unit": "1kg",
+    "avgPrice": 14.976801675977539
+  },
+  "DADA AYAM (CHICKEN KEEL) (1KG)": {
+    "unit": "1kg",
+    "avgPrice": 13.710218120805273
+  },
+  "THIGH AYAM": {
+    "unit": "1kg",
+    "avgPrice": 12.026621923937276
+  },
+  "WHOLE LEG AYAM": {
+    "unit": "1kg",
+    "avgPrice": 14.69614989733047
+  },
+  "IKAN MERAH (KEPINGAN)": {
+    "unit": "1kg",
+    "avgPrice": 54.584130434782814
+  },
+  "UDANG PUTIH/VANNAMEI (TERNAK) (ANTARA 41 HINGGA 60 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 34.450157459299255
+  },
+  "BAYAM HIJAU": {
+    "unit": "1kg",
+    "avgPrice": 6.899473386982841
+  },
+  "BAYAM MERAH": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "SAWI HIJAU": {
+    "unit": "1kg",
+    "avgPrice": 6.891277026307261
+  },
+  "KANGKUNG": {
+    "unit": "1kg",
+    "avgPrice": 6.365464900334178
+  },
+  "KAILAN": {
+    "unit": "1kg",
+    "avgPrice": 10.48128929384956
+  },
+  "TAUGE KACANG HIJAU": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "UDANG KERING": {
+    "unit": "100 g",
+    "avgPrice": 8.030588235294104
+  },
+  "SOTONG KERING (SAIZ SERDAHANA)": {
+    "unit": "1kg",
+    "avgPrice": 99.31322033898292
+  },
+  "BAWANG PUTIH IMPORT (CHINA)": {
+    "unit": "1kg",
+    "avgPrice": 9.484614373356875
+  },
+  "SERBUK KARI IKAN (TIDAK BERBUNGKUS)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "SERBUK KARI DAGING (TIDAK BERBUNGKUS)": {
+    "unit": "100 g",
+    "avgPrice": 0
+  },
+  "SERBUK KARI IKAN ADABI": {
+    "unit": "250 g",
+    "avgPrice": 6.735299999999957
+  },
+  "SERBUK KARI IKAN ALAGAPPAS": {
+    "unit": "200 g",
+    "avgPrice": 0
+  },
+  "SERBUK KARI AYAM DAN DAGING ADABI": {
+    "unit": "250 g",
+    "avgPrice": 6.677025834908591
+  },
+  "SERBUK KARI DAGING ALAGAPPAS": {
+    "unit": "200 g",
+    "avgPrice": 0
+  },
+  "SERBUK KARI DAGING BABAS": {
+    "unit": "250 g",
+    "avgPrice": 6.297598253275074
+  },
+  "SERBUK KURMA AYAM & DAGING ADABI": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "SERBUK KURMA BABAS": {
+    "unit": "125 g",
+    "avgPrice": 0
+  },
+  "SERBUK KARI KURMA ALAGAPPAS": {
+    "unit": "200 g",
+    "avgPrice": 0
+  },
+  "SERBUK PERENCAH SUP ADABI": {
+    "unit": "250 g",
+    "avgPrice": 9.203077984817098
+  },
+  "SERBUK REMPAH SUP MAK SITI": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "SERBUK SUP FAIZA": {
+    "unit": "220 g",
+    "avgPrice": 0
+  },
+  "BERAS CAP RAMBUTAN (SST5%)": {
+    "unit": "10 kg",
+    "avgPrice": 26
+  },
+  "BERAS CAP JASMINE (SST5%)": {
+    "unit": "10 kg",
+    "avgPrice": 26
+  },
+  "BERAS SUPER CAP JATI TWR  5% (IMPORT)": {
+    "unit": "10 kg",
+    "avgPrice": 32.90610169491528
+  },
+  "BIHUN KERING IMPORT (CAP BINTANG)": {
+    "unit": "400 g",
+    "avgPrice": 3.778556280587281
+  },
+  "ROTI SANDWICH MASSIMO DENGAN GERMA GANDUM": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "GULA HALUS CASTOR (PELBAGAI JENAMA)": {
+    "unit": "+- 500g",
+    "avgPrice": 0
+  },
+  "GULA MERAH LEMBUT (PELBAGAI JENAMA)": {
+    "unit": "+- 500g",
+    "avgPrice": 3.4485148514851462
+  },
+  "GULA PUTIH BERTAPIS KASAR (PELBAGAI JENAMA)": {
+    "unit": "1kg",
+    "avgPrice": 2.849641478212932
+  },
+  "GULA PUTIH BERTAPIS HALUS (PELBAGAI JENAMA)": {
+    "unit": "1kg",
+    "avgPrice": 2.9505494505494783
+  },
+  "TEPUNG BERAS (PELBAGAI JENAMA)": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "TEPUNG GANDUM GP (BERBUNGKUS) PELBAGAI JENAMA": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "TEPUNG PULUT (PELBAGAI JENAMA)": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "MINYAK SAPI CAP WINDMILL GHEEBLEND": {
+    "unit": "400 g",
+    "avgPrice": 18.03665454545446
+  },
+  "ASAM JAWA (TIDAK BERBIJI) ADABI": {
+    "unit": "200 g",
+    "avgPrice": 4.970533333333328
+  },
+  "GARAM HALUS BIASA (PELBAGAI JENAMA)": {
+    "unit": "+-350g",
+    "avgPrice": 1.0595312500000003
+  },
+  "LEPAAN FARMCOWS": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "LEPAAN BUTTERCUP": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "MENTEGA SCS (SALTED)": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "SANTAN KELAPA JENAMA M&S": {
+    "unit": "500 ml",
+    "avgPrice": 8.291296023564085
+  },
+  "SANTAN KELAPA JENAMA KARA": {
+    "unit": "200 ml",
+    "avgPrice": 4.0797178871548265
+  },
+  "SANTAN KELAPA JENAMA HARMUNI": {
+    "unit": "200 ml",
+    "avgPrice": 3.957056367432145
+  },
+  "ESEN STAR BRAND 'PELBAGAI PERISA'": {
+    "unit": "25 ml",
+    "avgPrice": 2.808523076923082
+  },
+  "MENTEGA ANCHOR (SALTED)": {
+    "unit": "227g",
+    "avgPrice": 14.993004694835637
+  },
+  "MAURIPAN YIS SEGERA": {
+    "unit": "11g",
+    "avgPrice": 0
+  },
+  "SUSU ISIAN PEKAT MANIS CAP F & N": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "SUSU TEPUNG SEGERA DUTCHLADY (BIASA )": {
+    "unit": "600 g",
+    "avgPrice": 19.930491071428488
+  },
+  "S-26 SMA RUMUSAN BAYI LANGKAH 1 - (KOTAK)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "S-26 GOLD SMA RUMUSAN BAYI LANGKAH 1 - (KOTAK)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "NESTLE CERELAC GANDUM DAN MADU - KOTAK": {
+    "unit": "225g",
+    "avgPrice": 9.97894557823128
+  },
+  "NESTLE CERELAC BERAS MERAH & SUSU - TIN": {
+    "unit": "350 g",
+    "avgPrice": 0
+  },
+  "BERUS GIGI COLGATE (TWISTER - SOFT)": {
+    "unit": "1 batang",
+    "avgPrice": 4.903387096774202
+  },
+  "NESTLE COFFEE-MATE": {
+    "unit": "450 g",
+    "avgPrice": 9.925474452554718
+  },
+  "MILO (PAKET)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "MILO 3 IN 1 (PAKET) - ORIGINAL": {
+    "unit": "30x33g",
+    "avgPrice": 0
+  },
+  "SERBUK KOPI CAP KAPAL API (KASAR) (BERBUNGKUS)": {
+    "unit": "180 g",
+    "avgPrice": 0
+  },
+  "SERBUK KOPI HANG TUAH ROBUSTA": {
+    "unit": "200 g",
+    "avgPrice": 0
+  },
+  "TEH LIPTON (SERBUK)": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "TEH LIPTON (UNCANG)": {
+    "unit": "100 beg",
+    "avgPrice": 15.946473384030375
+  },
+  "YEO'S SOYA (KOTAK)": {
+    "unit": "250 ml",
+    "avgPrice": 1.2148979591836737
+  },
+  "PAPERMATE LIQUID PAPER (PEN)": {
+    "unit": "7ml",
+    "avgPrice": 0
+  },
+  "UHU GLUE (GAM PELBAGAI KEGUNAAN)": {
+    "unit": "20ml",
+    "avgPrice": 0
+  },
+  "MAJALAH CLEO": {
+    "unit": "senaskah",
+    "avgPrice": 0
+  },
+  "MAJALAH MINGGUAN WANITA": {
+    "unit": "senaskah",
+    "avgPrice": 0
+  },
+  "COLGATE TOOTHBRUSH EXTRA CLEAN MEDIUM": {
+    "unit": "1 batang",
+    "avgPrice": 0
+  },
+  "DARLIE TRAVEL KIT ADULT": {
+    "unit": "1 unit",
+    "avgPrice": 0
+  },
+  "KOTEX SOFT AND SMOOTH OVERNIGHT WING 8 PADS (28CM)": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "KOTEX SOFT & SMOOTH MAXI WING 10 PADS": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "REJOICE RICH SOFT SMOOTH SHAMPOO": {
+    "unit": "70ml",
+    "avgPrice": 0
+  },
+  "HEAD AND SHOULDERS COOL MENTHOL SHAMPOO": {
+    "unit": "70ml",
+    "avgPrice": 0
+  },
+  "KLEENEX FACIAL TISSUE VINTAGE SOFTPACK 50S X 3": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "FUMAKILLA D1 (LINGKARAN NYAMUK) - 1 X 10'S": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "PANADOL ACTIFAST 10S": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "STREPSILS ORIGINAL 6 LOZENGES": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "MISTER POTATO CRISPS (PELBAGAI PERISA) - BOTOL": {
+    "unit": "160 g",
+    "avgPrice": 0
+  },
+  "PRINGLES POTATO CRISPS (PELBAGAI PERISA) - BOTOL": {
+    "unit": "110 g",
+    "avgPrice": 0
+  },
+  "MISTER POTATO CHIPS (PELBAGAI PERISA) - PAKET": {
+    "unit": "75 g",
+    "avgPrice": 0
+  },
+  "OREO BISKUT SANDWICH COKLAT JENAMA KRAFT (PELBAGAI PERISA)": {
+    "unit": "paket",
+    "avgPrice": 0
+  },
+  "CREAM O BISKUT SANDWICH JENAMA JACK N JILL (PELBAGAI PERISA)": {
+    "unit": "132g",
+    "avgPrice": 0
+  },
+  "CHIPSMORE ORIGINAL": {
+    "unit": "163.2g",
+    "avgPrice": 0
+  },
+  "ENO SACHET GINGER": {
+    "unit": "2x4.3g",
+    "avgPrice": 0
+  },
+  "CHIPSMORE MINI HAZELNUTS": {
+    "unit": "88g",
+    "avgPrice": 0
+  },
+  "TIGER BISKUAT SUSU": {
+    "unit": "75 g",
+    "avgPrice": 0
+  },
+  "CADBURY DAIRY MILK HAZELNUT": {
+    "unit": "40 g",
+    "avgPrice": 0
+  },
+  "KINDER JOY FOR BOYS/FOR GIRLS": {
+    "unit": "20 g",
+    "avgPrice": 0
+  },
+  "TOBLERONE (MILK CHOCOLATE)": {
+    "unit": "50 g",
+    "avgPrice": 0
+  },
+  "NIPS CHOCOLATE COATED ROASTED PEANUT": {
+    "unit": "85g",
+    "avgPrice": 0
+  },
+  "MAGGI HOT CUP (CURRY)": {
+    "unit": "64g",
+    "avgPrice": 0
+  },
+  "YAKULT (ACE/ACE LIGHT)": {
+    "unit": "80ml",
+    "avgPrice": 0
+  },
+  "LIVITA WITH HONEY (TIN)": {
+    "unit": "250 ml",
+    "avgPrice": 0
+  },
+  "SEVEN UP LEMON & LIME": {
+    "unit": "500 ml",
+    "avgPrice": 0
+  },
+  "THREE LEGS COOLING WATER": {
+    "unit": "200 ml",
+    "avgPrice": 0
+  },
+  "COOL RHINO COOLING WATER": {
+    "unit": "350ml",
+    "avgPrice": 0
+  },
+  "NASI GORENG BIASA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI GORENG SEAFOOD": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI GORENG BIASA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI GORENG MAMAK": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI HAILAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI SUP (AYAM/DAGING)": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "MI TOM YAM": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "MI BANDUNG": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI LADNA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI KUNGFU": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "BIHUN SUP (AYAM/DAGING)": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "KUETIAU GORENG BIASA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "KUETIAU HAILAM": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "KUETIAU SUP (AYAM/DAGING)": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "KUETIAU TOM YAM": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "KUETIAU BANDUNG": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "KUETIAU LADNA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "KUETIAU KUNGFU": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "CHAR KUETIAU": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "MI HOKKIEN": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "KON LOH MI (KICAP)": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "WAN TAN MI": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "MI UDANG": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "MI KARI": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "DAGING KAMBING MASAK KARI": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "PAK CHOY SOS TIRAM": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "SAYUR TAUGEH": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "BABI (PORK) GORENG": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "BABI (PORK) MASAM MANIS": {
+    "unit": "sepiring",
+    "avgPrice": 0
+  },
+  "IKAN SIAKAP GORENG (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN SIAKAP MASAM MANIS (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN SIAKAP TIGA RASA (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN SIAKAP KUKUS/STIM (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KERAPU GORENG (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KERAPU MASAM MANIS (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KERAPU TIGA RASA (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KERAPU KUKUS/STIM (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL HITAM GORENG (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL HITAM MASAM MANIS (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL HITAM TIGA RASA (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL HITAM KUKUS/STIM (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL PUTIH GORENG (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL PUTIH MASAM MANIS (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN BAWAL PUTIH KUKUS/STIM (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KEMBUNG GORENG (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KEMBUNG MASAK KICAP (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN KEMBUNG TIGA RASA (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN TENGGIRI GORENG": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "IKAN TENGGIRI MASAK KARI": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "IKAN TILAPIA GORENG BIASA (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN TILAPIA MASAM MANIS (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "IKAN TILAPIA KUKUS/STIM (SAIZ SEDERHANA)": {
+    "unit": "1 ekor",
+    "avgPrice": 0
+  },
+  "SUP PERUT": {
+    "unit": "semangkuk",
+    "avgPrice": 0
+  },
+  "ROTI NAAN": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "ROTI CANAI BIASA": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "KUIH KARIPAP (KENTANG)": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "VADAI MASALA": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "VADAI ULUNDHU": {
+    "unit": "sebiji",
+    "avgPrice": 0
+  },
+  "ROJAK BIASA": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "ROJAK MI": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "TEH TARIK PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "KOPI \"O\" AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "KOPI AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "TEH AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "NESCAFE AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "LIMAU AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "JUS OREN": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "CARROT SUSU": {
+    "unit": "segelas",
+    "avgPrice": 0
+  },
+  "KEPAK AYAM (CHICKEN WING) (1KG)": {
+    "unit": "1kg",
+    "avgPrice": 15.684733333333195
+  },
+  "MENTOS (PELBAGAI PERISA)": {
+    "unit": "37g",
+    "avgPrice": 0
+  },
+  "LIMAU PANAS": {
+    "unit": "gelas kecil",
+    "avgPrice": 0
+  },
+  "KACANG BOTOL": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "LENGKUAS": {
+    "unit": "1kg",
+    "avgPrice": 10.182072384730162
+  },
+  "BERAS SUPER SPECIAL TEMPATAN SABAH RICE VAGAS TOKOU": {
+    "unit": "10 kg",
+    "avgPrice": 28.011724137931033
+  },
+  "BERAS TQR SABAH CAP TKC 5%": {
+    "unit": "10 kg",
+    "avgPrice": 34.625499999999995
+  },
+  "BERAS SUPER HUMA CAP KELISA EMAS (SABAH)": {
+    "unit": "10 kg",
+    "avgPrice": 33.39176470588236
+  },
+  "BERAS SUPER CAP ANGGUR SAZARICE 5% (IMPORT THAILAND)": {
+    "unit": "10 kg",
+    "avgPrice": 28.678432835820892
+  },
+  "BERAS SUPER CAP RODA SAZARICE 5% (IMPORT THAILAND)": {
+    "unit": "10 kg",
+    "avgPrice": 28.457583333333353
+  },
+  "TEPUNG GANDUM NGP (BERBUNGKUS, CAP MUHIBAH)": {
+    "unit": "1kg",
+    "avgPrice": 3.4182524271844636
+  },
+  "KICAP SOYA PEKAT MANIS CAP AYAM": {
+    "unit": "330 ml",
+    "avgPrice": 0
+  },
+  "BUTTERLITE (LEPA SUSU ISTIMEWA)": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "BERAS CAP GOLDEN SARAWAK (SST5%)": {
+    "unit": "10 kg",
+    "avgPrice": 27.99039999999999
+  },
+  "BERAS PREMIUM CAP UNCLE TAN": {
+    "unit": "10 kg",
+    "avgPrice": 30.709401709401725
+  },
+  "KICAP TONG NAM (DARK SOY SAUCE)": {
+    "unit": "330 ml",
+    "avgPrice": 0
+  },
+  "TEPUNG NAIK SENDIRI CAP 'BLUE KEY'": {
+    "unit": "1kg",
+    "avgPrice": 5.038204545454547
+  },
+  "TENOM COFFEE WANG EMAS (SERBUK)": {
+    "unit": "180 g",
+    "avgPrice": 0
+  },
+  "DESA FRESH MILK (KOTAK)": {
+    "unit": "1 liter",
+    "avgPrice": 7.599722222222222
+  },
+  "KORDIAL F&N SUN VALLEY (GRENADINE)": {
+    "unit": "2 liter",
+    "avgPrice": 12.618755020080332
+  },
+  "SERBUK KOPIMAS COFFEE (BOLD TRADITIONS)": {
+    "unit": "200 g",
+    "avgPrice": 0
+  },
+  "NASI KERABU (BIASA)": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "NASI DAGANG (BIASA)": {
+    "unit": "sepinggan",
+    "avgPrice": 0
+  },
+  "TEH \"O\" AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "TEH \"O\" LIMAU AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "TEH HALIA AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "NESCAFE \"O\" AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "NESLO AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "HORLICKS AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "MILO AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "MILO \"O\" AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "SIRAP AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "SIRAP LIMAU AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "SIRAP BANDUNG AIS": {
+    "unit": "gelas besar",
+    "avgPrice": 0
+  },
+  "TEPUNG GANDUM NGP (BERBUNGKUS, CAP  FAIZA)": {
+    "unit": "1kg",
+    "avgPrice": 3.651724683544297
+  },
+  "KRIMER SEJAT CAIR SAJI": {
+    "unit": "390g",
+    "avgPrice": 0
+  },
+  "MAYONIS SEBENAR LADY'S CHOICE": {
+    "unit": "220ml",
+    "avgPrice": 7.938445297504813
+  },
+  "KRIMER MANIS CAP TEAPOT": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "DUTCH LADY 123 (BIASA)": {
+    "unit": "850g",
+    "avgPrice": 25.38765235457097
+  },
+  "PELEMBUT PAKAIAN - DOWNY (PREMIUM PARFUM PASSION)": {
+    "unit": "800ml",
+    "avgPrice": 12.92460317460312
+  },
+  "NESCAFE BLEND & BREW 3 IN 1 (PAKET ) - ORIGINAL": {
+    "unit": "28x19g",
+    "avgPrice": 0
+  },
+  "SEVEN UP LEMON & LIME (TIN)": {
+    "unit": "320ml",
+    "avgPrice": 1.8080876494023883
+  },
+  "YOGURT LACTEL (FAT FREE) (STRAWBERRY)": {
+    "unit": "130g",
+    "avgPrice": 2.865215759849905
+  },
+  "SERBUK CABAI ALAGAPPAS": {
+    "unit": "230g",
+    "avgPrice": 0
+  },
+  "TUNA CAP AYAM (TUNA MAYONNAISE)": {
+    "unit": "160 g",
+    "avgPrice": 0
+  },
+  "SABUN SERBUK FAB (PERFECT)": {
+    "unit": "680g",
+    "avgPrice": 0
+  },
+  "PEMBARIS PLASTIK FABER CASTELL - 15CM": {
+    "unit": "1 unit",
+    "avgPrice": 0
+  },
+  "DETTOL SHOWER FOAM ORIGINAL": {
+    "unit": "250 ml",
+    "avgPrice": 0
+  },
+  "AMBI PUR GEL FRESH AIR FRESHENER (PELBAGAI JENIS)": {
+    "unit": "180ml",
+    "avgPrice": 0
+  },
+  "BYE BYE FEVER SUPER COOL (DEWASA)": {
+    "unit": "6sheets",
+    "avgPrice": 0
+  },
+  "SUPER RING SNACKS CHEESE": {
+    "unit": "60 g",
+    "avgPrice": 0
+  },
+  "MUNCHY'S MUZIC WAFER VANILLA CUBE": {
+    "unit": "90g",
+    "avgPrice": 0
+  },
+  "CALPIS (PELBAGAI PERISA)": {
+    "unit": "350ml",
+    "avgPrice": 0
+  },
+  "COCA COLA LIGHT": {
+    "unit": "320ml",
+    "avgPrice": 0
+  },
+  "CILI KERING KERINTING (BERTANGKAI/TIDAK BERTANGKAI)": {
+    "unit": "1kg",
+    "avgPrice": 20.187491749175056
+  },
+  "CILI KERING LEPER (BERTANGKAI/TIDAK BERTANGKAI)": {
+    "unit": "1kg",
+    "avgPrice": 20.57277777777767
+  },
+  "BERAS SUPER WR (5%)": {
+    "unit": "10 kg",
+    "avgPrice": 0
+  },
+  "DUMEX DUGRO 3 (1-3 TAHUN) PERISA ASLI (850G)": {
+    "unit": "850g",
+    "avgPrice": 26.98279720279734
+  },
+  "MAGGI 2 MINUTE NOODLE CURRY FLAVOUR (5X79G)": {
+    "unit": "5 X 79g",
+    "avgPrice": 0
+  },
+  "DAGING KAMBING BEBIRI IMPORT BERTULANG (LAMB) (AUSTRALIA - KOTAK) (1KG)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING KAMBING BEBIRI IMPORT BERTULANG (LAMB) (NEW ZEALAND - KOTAK)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING KAMBING BEBIRI IMPORT TANPA TULANG (LAMB) (TIDAK TERMASUK PAHA - AUSTRALIA)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING KAMBING BEBIRI IMPORT TANPA TULANG (LAMB) (TIDAK TERMASUK PAHA - NEW ZEALAND)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING PAHA KAMBING BEBIRI IMPORT BERTULANG (LAMB) (AUSTRALIA)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING PAHA KAMBING BEBIRI IMPORT BERTULANG (LAMB) (NEW ZEALAND)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "DAGING LEMBU IMPORT (BLOCK)": {
+    "unit": "1kg",
+    "avgPrice": 31.08576923076923
+  },
+  "DAGING KERBAU IMPORT (INDIA) (BLOCK)": {
+    "unit": "1kg",
+    "avgPrice": 23.676588235294037
+  },
+  "IKAN JENAHAK (KEPINGAN)": {
+    "unit": "1kg",
+    "avgPrice": 49.880599520383804
+  },
+  "IKAN DEMUDUK/CUPAK/CERMIN (b\t$ 3 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 29.847192141830547
+  },
+  "IKAN PARANG (KEPINGAN)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN TERUBOK (b\t$ 4 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "UDANG PUTIH BESAR (ANTARA 20 HINGGA 30 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 63.64166666666669
+  },
+  "KERANG (SAIZ SEDERHANA)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "IKAN TILAPIA MERAH (ANTARA 2 HINGGA 5 EKOR SEKILOGRAM)": {
+    "unit": "1kg",
+    "avgPrice": 16.848741051161223
+  },
+  "SADERI": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "TERUNG BULAT": {
+    "unit": "1kg",
+    "avgPrice": 10.258902116402028
+  },
+  "SERBUK KUNYIT ALAGAPPAS": {
+    "unit": "230g",
+    "avgPrice": 0
+  },
+  "CILI API/PADI MERAH": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "CILI AKAR HIJAU": {
+    "unit": "1kg",
+    "avgPrice": 16.351854767184186
+  },
+  "CILI AKAR MERAH": {
+    "unit": "1kg",
+    "avgPrice": 32.483220765459926
+  },
+  "LIMAU KASTURI": {
+    "unit": "1kg",
+    "avgPrice": 6.275763622409686
+  },
+  "SANTAN KELAPA SEGAR (PEKAT)": {
+    "unit": "1kg",
+    "avgPrice": 15.695345911949689
+  },
+  "TELUR AYAM KAMPUNG": {
+    "unit": "10 biji",
+    "avgPrice": 0
+  },
+  "BAWANG BESAR IMPORT (PAKISTAN)": {
+    "unit": "1kg",
+    "avgPrice": 3.2044581280788123
+  },
+  "BAWANG KECIL MERAH IMPORT (HOLLAND)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "MINYAK MASAK SEBATIAN CAP ADELA GOLD": {
+    "unit": "5 kg",
+    "avgPrice": 0
+  },
+  "MINYAK MASAK TULEN CAP SAJI": {
+    "unit": "5 kg",
+    "avgPrice": 30.706439232409764
+  },
+  "MINYAK MASAK TULEN CAP ALIF": {
+    "unit": "5 kg",
+    "avgPrice": 30.750802469135785
+  },
+  "KACANG MERAH (IMPORT)": {
+    "unit": "1kg",
+    "avgPrice": 0
+  },
+  "KACANG SOYA (IMPORT)": {
+    "unit": "1kg",
+    "avgPrice": 8.146608695652178
+  },
+  "TAUHU (JENIS KERAS)": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "TEMPE (BUNGKUSAN PLASTIK)": {
+    "unit": "sekeping",
+    "avgPrice": 0
+  },
+  "RAGI BULAT/RAGI TAPAI": {
+    "unit": "1 biji",
+    "avgPrice": 0
+  },
+  "ROTI WHOLEMEAL (PELBAGAI JENAMA)": {
+    "unit": "400 g",
+    "avgPrice": 0
+  },
+  "BUNGA RAYA YIS SEGERA": {
+    "unit": "11g",
+    "avgPrice": 0
+  },
+  "BERAS SUPER CAP 3A BOY (IMPORT)": {
+    "unit": "10 kg",
+    "avgPrice": 29.770444444444465
+  },
+  "KRIMER SEJAT CAP F&N": {
+    "unit": "390g",
+    "avgPrice": 0
+  },
+  "KRIMER MANIS PEKAT CAP SAJI": {
+    "unit": "500 g",
+    "avgPrice": 3.4528979980934174
+  },
+  "YOGURT MARIGOLD (LOW FAT) (STRAWBERRY)": {
+    "unit": "130g",
+    "avgPrice": 2.8205653021442516
+  },
+  "NAN PRO LANGKAH 1 RUMUSAN BAYI (KOTAK)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "NAN PRO LANGKAH 2 RUMUSAN SUSULAN (KOTAK)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "NANKID OPTIPRO LANGKAH 3 RUMUSAN UNTUK KANAK-KANAK": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "SUSU SEGAR FARM FRESH": {
+    "unit": "1 liter",
+    "avgPrice": 0
+  },
+  "SUSU SEGAR KURMA FARM FRESH": {
+    "unit": "700 g",
+    "avgPrice": 9.147037037037046
+  },
+  "ANMUM ESSENTIAL LANGKAH 4 PERISA ASLI (TANPA GULA TAMBAHAN) - TIN": {
+    "unit": "1.5kg",
+    "avgPrice": 0
+  },
+  "NESTUM (ORIGINAL)": {
+    "unit": "500 g",
+    "avgPrice": 0
+  },
+  "REFILL ANMUM ESSENTIAL LANGKAH 4 PERISA ASLI (TANPA GULA TAMBAHAN) - KOTAK": {
+    "unit": "550 g",
+    "avgPrice": 35.88084444444435
+  },
+  "QUAKER OATS INSTANT OATMEALS": {
+    "unit": "1kg",
+    "avgPrice": 11.562142857142863
+  },
+  "PEDIASURE (VANILA)": {
+    "unit": "600 g",
+    "avgPrice": 0
+  },
+  "MILNA BISKUT RUSK (ASLI)": {
+    "unit": "130g",
+    "avgPrice": 7.72220264317179
+  },
+  "PETPET GOLD+": {
+    "unit": "M70",
+    "avgPrice": 0
+  },
+  "DRYPERS WEE WEE DRY (M74)": {
+    "unit": "M74",
+    "avgPrice": 0
+  },
+  "HUGGIES DRY DIAPERS (M72)": {
+    "unit": "M72",
+    "avgPrice": 0
+  },
+  "DIAPEX EASY": {
+    "unit": "M70",
+    "avgPrice": 0
+  },
+  "FITTI": {
+    "unit": "M60",
+    "avgPrice": 0
+  },
+  "MAMYPOKO EXTRA DRY": {
+    "unit": "M54",
+    "avgPrice": 0
+  },
+  "PETPET DAY NIGHT PANTS": {
+    "unit": "M54",
+    "avgPrice": 0
+  },
+  "DRYPERS DRYPANTZ": {
+    "unit": "M60",
+    "avgPrice": 0
+  },
+  "HUGGIES DRY PANTS": {
+    "unit": "M60",
+    "avgPrice": 0
+  },
+  "MAGGI MI SEGERA PERISA KARI": {
+    "unit": "5 X 79g",
+    "avgPrice": 5.486137017846821
+  },
+  "CINTAN MI SEGERA PERISA AYAM": {
+    "unit": "5 X 75g",
+    "avgPrice": 0
+  },
+  "MI SEDAP MI GORENG PERISA ASLI": {
+    "unit": "5 X 90g",
+    "avgPrice": 0
+  },
+  "SABUN MANDIAN LIFEBUOY (COOL FRESH)": {
+    "unit": "300ml",
+    "avgPrice": 0
+  },
+  "SABUN MANDIAN DETTOL ANTIBACTERIAL (FRESH)": {
+    "unit": "500 ml",
+    "avgPrice": 0
+  },
+  "SABUN MANDIAN LUX (MAGICAL SPELL)": {
+    "unit": "220 ml",
+    "avgPrice": 0
+  },
+  "SYAMPU REJOICE (RICH SOFT SMOOTH)": {
+    "unit": "340ml",
+    "avgPrice": 0
+  },
+  "SYAMPU PANTENE PRO-V (HAIR FALL CONTROL)": {
+    "unit": "340ml",
+    "avgPrice": 0
+  },
+  "SYAMPU HEAD & SHOULDERS (SMOOTH & SILKY)": {
+    "unit": "330 ml",
+    "avgPrice": 16.90775362318831
+  },
+  "TUALA WANITA KOTEX SOFT & SMOOTH (MAXI - NON WING)": {
+    "unit": "10 PAD",
+    "avgPrice": 0
+  },
+  "TUALA WANITA LIBRESSE (MAXI - NON WING)": {
+    "unit": "10 PAD",
+    "avgPrice": 0
+  },
+  "DEODORAN NIVEA MAN (BLACK & WHITE INVISIBLE - ORIGINAL)": {
+    "unit": "150 ml",
+    "avgPrice": 19.23152112676053
+  },
+  "DEODORAN NIVEA (EXTRA BRIGHTENING)": {
+    "unit": "150 ml",
+    "avgPrice": 19.852902374670126
+  },
+  "DEODORAN REXONA MEN (SPORT DEFENSE)": {
+    "unit": "50 ml",
+    "avgPrice": 10.921894736842118
+  },
+  "DEODORAN REXONA (POWDER DRY BRIGHTENING)": {
+    "unit": "50 ml",
+    "avgPrice": 11.372550000000016
+  },
+  "SABUN SERBUK BREEZE (POWER CLEAN)": {
+    "unit": "750 g",
+    "avgPrice": 0
+  },
+  "SABUN SERBUK ATTACK (AROMA FRESH + COLOUR)": {
+    "unit": "800 g",
+    "avgPrice": 10.765899705014748
+  },
+  "SABUN SERBUK TOP (SUPER COLOUR)": {
+    "unit": "750 g",
+    "avgPrice": 0
+  },
+  "DYNAMO POWER GEL (PERFECT CLEAN)": {
+    "unit": "2.6kg",
+    "avgPrice": 0
+  },
+  "DAIA EXCELLENT WASHING POWER (EUA DE PARFUM)": {
+    "unit": "750 g",
+    "avgPrice": 0
+  },
+  "PELEMBUT PAKAIAN - SOFTLAN (FLORAL FANTASY)": {
+    "unit": "1 liter",
+    "avgPrice": 0
+  },
+  "PENCUCI PELBAGAI GUNA DETTOL (LAVENDER)": {
+    "unit": "2.5 liter",
+    "avgPrice": 24.10040000000001
+  },
+  "PENCUCI PELBAGAI GUNA MR MUSCLE (LAVENDER)": {
+    "unit": "2 liter",
+    "avgPrice": 13.768202846975003
+  },
+  "PENCUCI PELBAGAI GUNA AJAX FABULOSO (LAVENDER)": {
+    "unit": "2 liter",
+    "avgPrice": 14.437986906710261
+  },
+  "DUMEX DUPRO 2 (RUMUSAN SUSULAN)": {
+    "unit": "850g",
+    "avgPrice": 29.614358507734543
+  },
+  "PELUNTUR CLOROX (ORIGINAL)": {
+    "unit": "1 liter",
+    "avgPrice": 5.004802158273387
+  },
+  "BIHUN KERING IMPORT (PELBAGAI JENAMA)": {
+    "unit": "400 g",
+    "avgPrice": 4.31905172413793
+  },
+  "BERAS SUPER SPECIAL CAP FAMILI 5%": {
+    "unit": "10 kg",
+    "avgPrice": 27.2
+  },
+  "SUSU TEPUNG PENUH KRIM SEGERA NESPRAY": {
+    "unit": "480 g",
+    "avgPrice": 0
+  },
+  "DUTCH LADY 456 (BIASA)": {
+    "unit": "850g",
+    "avgPrice": 25.303291316526945
+  },
+  "KIUB SUP TOM YAM (MAGGI)": {
+    "unit": "6 X 10g",
+    "avgPrice": 3.273215926493129
+  },
+  "KRAFT DAIRYLEA SINGLES CHEESE 12 SLICES": {
+    "unit": "250 g",
+    "avgPrice": 0
+  },
+  "ENFAGROW A+ MIND PRO LANGKAH 3 VANILA (KOTAK)": {
+    "unit": "500 g",
+    "avgPrice": 57.121095008051675
+  },
+  "PETPET PANTS GOLD+": {
+    "unit": "M60",
+    "avgPrice": 0
+  },
+  "NESCAFE 3 IN 1 ORIGINAL (AROMATIC & BALANCED)": {
+    "unit": "25 x 18g",
+    "avgPrice": 15.449449404761811
+  },
+  "": {
+    "unit": "",
+    "avgPrice": 0
+  }
+}
