@@ -8,20 +8,26 @@ export default function WebGame() {
       {/* Top navigation */}
       <Navbar />
 
+<div className="flex justify-center p-6">
+
+    <iframe frameborder="0" src="https://itch.io/embed-upload/16159688?color=333333" allowfullscreen="" width="960" height="600"><a href="https://yongkan.itch.io/edudaily">Play edudaily on itch.io</a></iframe>
+
+</div>
+
       {/* Page header */}
-      <div className="px-6 py-4 bg-gray-800 border-b border-gray-700">
+      {/* <div className="px-6 py-4 bg-gray-800 border-b border-gray-700">
         <h1 className="text-2xl font-bold text-white">
           Web Game Experience
         </h1>
         <p className="text-gray-400 text-sm">
           Play the 3D Unity WebGL game directly in your browser
         </p>
-      </div>
+      </div> */}
 
       {/* Unity game container */}
-      <div className="flex-1 overflow-hidden">
+      {/* <div className="flex-1 overflow-hidden">
         <UnityGame />
-      </div>
+      </div> */}
     </div>
   );
 }
