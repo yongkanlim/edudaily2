@@ -25,3 +25,6 @@ dist-ssr
 
 # Unity WebGL Build
 public/WebBuild/
+
+# Environment Variables
+.env
