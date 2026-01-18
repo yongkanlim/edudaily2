@@ -17,7 +17,7 @@ export default function RecipeDetail() {
     fetchRecipeDetail();
   }, [id]);
 
-  async function fetchRecipeDetail() {
+async function fetchRecipeDetail() {
   try {
     // Fetch main recipe details
     const { data: recipeData, error: recipeError } = await supabase
@@ -27,38 +27,50 @@ export default function RecipeDetail() {
       .single();
 
     if (recipeError) throw recipeError;
+
     setRecipe({
       ...recipeData,
       instructions: recipeData.instructions?.replace(/\n/g, "<br>"),
     });
 
-    // Fetch recipe ingredients joined with ingredient details
+    // Fetch ingredients
     const { data: ingredientData, error: ingError } = await supabase
       .from("recipeingredient")
-      .select("quantityrequired, ingredient:ingredientid(name, averageprice, unit)")
+      .select(
+        "quantityrequired, ingredient:ingredientid(name, averageprice, unit)"
+      )
       .eq("recipeid", id);
 
     if (ingError) throw ingError;
 
     const formatted = ingredientData.map((item) => {
-      const unit = item.ingredient.unit;
-      const quantity = item.quantityrequired;
-      const unitPrice = unit.toLowerCase() === "kg" ? item.ingredient.averageprice : 1.0; // per piece/clove etc
-      const estimatedCost = unit.toLowerCase() === "kg" ? quantity * item.ingredient.averageprice : 0.0;
+  const unit = item.ingredient.unit?.toLowerCase();
+  const quantity = Number(item.quantityrequired);
+  const avgPrice = Number(item.ingredient.averageprice);
 
-      return {
-        name: item.ingredient.name,
-        unitPrice,
-        unit,
-        quantity,
-        estimatedCost,
-      };
-    });
+  let estimatedCost = 0;
+
+  // Only calculate cost for units that can be measured accurately
+  const calculableUnits = ["kg", "pack", "liter", "can", "block"];
+
+  if (calculableUnits.includes(unit)) {
+    estimatedCost = quantity * avgPrice;
+  }
+
+  return {
+    name: item.ingredient.name,
+    unit,
+    unitPrice: avgPrice, // always use real average price
+    quantity,
+    estimatedCost,
+  };
+});
+
 
     setIngredients(formatted);
-    setBaseIngredients(formatted); // keep a copy for recalculation
+    setBaseIngredients(formatted);
 
-    // Fetch related tutorial video
+    // Fetch tutorial
     const { data: tutorialData, error: tutError } = await supabase
       .from("tutorial")
       .select("videourl, title, description")
@@ -75,18 +87,30 @@ export default function RecipeDetail() {
   }
 }
 
+
 // Update ingredients when serving changes
 function handleServingChange(e) {
   const newServing = parseFloat(e.target.value);
-  if (!isNaN(newServing) && newServing > 0) {
-    setServing(newServing);
-    const scaled = baseIngredients.map((ing) => {
-      const quantity = ing.quantity * newServing;
-      const estimatedCost = ing.unit.toLowerCase() === "kg" ? quantity * ing.unitPrice : 0.0;
-      return { ...ing, quantity, estimatedCost };
-    });
-    setIngredients(scaled);
-  }
+  if (isNaN(newServing) || newServing <= 0) return;
+
+  setServing(newServing);
+
+  const scaled = baseIngredients.map((ing) => {
+    const quantity = ing.quantity * newServing;
+
+    let estimatedCost = 0;
+    if (ing.unitPrice > 0) {
+      estimatedCost = quantity * ing.unitPrice;
+    }
+
+    return {
+      ...ing,
+      quantity,
+      estimatedCost,
+    };
+  });
+
+  setIngredients(scaled);
 }
 
 
